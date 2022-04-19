@@ -42,7 +42,7 @@ Deploy Spring Boot apps using Azure Spring Cloud and Azure Services
   * CI/CD in action with the app
   * Green/blue, Canary release with the app
 
-## What will you experience
+## What you will experience
 
 You will
 - Build an existing Spring Boot/Cloud applications
