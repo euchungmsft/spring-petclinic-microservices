@@ -20,7 +20,7 @@ var vSKU1 = {
 	name: 'S0'
 	tier: 'Standard'
 } 
-/*
+
 module stgVNET 'infra/vnet-template.bicep' = if(deploymentMode == 'Standard') {
   name: 'create-vnet'
   params: {
@@ -55,7 +55,7 @@ module stgSA 'infra/sa-template.bicep' = {
     blobName: 'blob01'
   }
 }
-*/
+
 module stgSPC 'infra/spc-template.bicep' = {
   name: 'create-springcloud'
   params: {

@@ -126,18 +126,18 @@ Secure and dedicated deployment for serious purpose
 
 ### Clone and build the repo
 
-> Note: My recommendation is to start to fork these repos to yours first than cloning these right away. It helps you to run later half of this document, to config GitHub Action, you need to get your developer token for authentication, and to store your credentials in the repo
+> Note: My recommendation is to start to fork these repos to yours first than cloning these right away from this repo. It helps you to run later half of this document, to config GitHub Action, you need to get your developer token for authentication, and to store your credentials in the repo
 
 Create a new folder and clone the repositories to your environment
 
 ```
 mkdir [your source code folder name]
 cd [your source code folder name]
-git clone https://github.com/euchungmsft/spring-petclinic-microservices
-git clone https://github.com/euchungmsft/spring-petclinic-microservices-config
+git clone [your source code repo URL, or https://github.com/euchungmsft/spring-petclinic-microservices]
+git clone [your config repo URL, or https://github.com/euchungmsft/spring-petclinic-microservices-config]
 ```
 
-spring-petclinic-microservices is source code and working repo, spring-petclinic-microservices-config is for configuration repo to push back to GitHub. 
+spring-petclinic-microservices is source code and working repo, spring-petclinic-microservices-config is for the configuration repo to push back to GitHub. 
 
 Change directory and build the project.
 
@@ -159,37 +159,32 @@ mv .env-example .env
 Open .env
 
 ```
-SUBSCRIPTION=[your subscription id]
-RESOURCE_GROUP=[your resource group name]
-REGION=[region to deploy]
-
 PROJECT_NAME=[your project name, to give names to all resoures]
 
-SPRING_CLOUD_SERVICE=${PROJECT_NAME}-springcloud
-KEY_VAULT=${PROJECT_NAME}-keyvault
-LOG_ANALYTICS=${PROJECT_NAME}-loga
-MYSQL_SERVER_NAME=${PROJECT_NAME}-mysql
-STORAGE_ACCOUNT_NAME=${PROJECT_NAME}sa
-
-SHARE_NAME=share01
+RESOURCE_GROUP=${PROJECT_NAME}-rg
+REGION=westus
+..
+..
 ```
 
-PROJECT_NAME is for automatically naming the resources.
+PROJECT_NAME is for automatically naming the resources. MY_UPN is User Principal Name of your Azure portal account. Check this from Azure Active Directory - Users
 
 Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
 
 ```
 az login 
-az account set --subscription ${SUBSCRIPTION}
 ```
 or 
 
 ```
 az login --use-device-code
-az account set --subscription ${SUBSCRIPTION}
 ```
 
 You need a Resource Group and Service Principal to authenticate from your environment. Simply run `bin/init.sh`, it consist of steps listed below
+
+```
+bin/init.sh
+```
 
 1. Creating a Resource Group
 2. Creating a Service Principal
@@ -234,6 +229,12 @@ Load all required variables in your environment
 
 ```
 source ./.env
+```
+
+Set default sunscription to use in this example
+
+```
+az account set --subscription ${SUBSCRIPTION}
 ```
 
 Provision infrastructure components and Azure Spring Cloud
@@ -317,8 +318,6 @@ az keyvault set-policy --name $KEY_VAULT \
 --object-id $AZURE_OBJECT_ID \
 --secret-permissions all
 ```
-
-MY_UPN is your account name on the portal in email format
 
 Initialize MySQL
 
