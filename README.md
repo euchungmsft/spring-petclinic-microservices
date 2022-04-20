@@ -465,7 +465,7 @@ Rebuild the apps with the redisson updates
 mvn clean package -DskipTests -Denv=cloud
 ```
 
-* To run PetClinic app locally, See this [document](README-local.md)
+> Note: To run PetClinic app locally, See this [document](README-local.md)
 
 
 ### Deploy your Apps
