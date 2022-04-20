@@ -445,6 +445,29 @@ For Deployments
 
 Now you're ready to deploy your app.
 
+This example uses redisson for second level cache with Redis. You need to create redisson config first with the brand new Redis instance that you have created in the previous step, and copy it to all services that second level cache's configured - `customer-service`, `vets-service`, `visits-service` 
+
+```
+
+KEY0=`az redis list-keys --name ${PROJECT_NAME}-redis --resource-group ${RESOURCE_GROUP} | jq -r .primaryKey`
+echo "{\"singleServerConfig\":{\"address\": \"redis://${PROJECT_NAME}-redis.redis.cache.windows.net:6379\", \"password\": \"$KEY0\"}}" > redisson.json
+cat redisson.json
+
+cp redisson.json spring-petclinic-${CUSTOMERS_SERVICE}/src/main/resources/
+cp redisson.json spring-petclinic-${VETS_SERVICE}/src/main/resources/
+cp redisson.json spring-petclinic-${VISITS_SERVICE}/src/main/resources/ 
+
+```
+
+Rebuild the apps with the redisson updates
+
+```
+mvn clean package -DskipTests -Denv=cloud
+```
+
+* To run PetClinic app locally, See this [document](README-local.md)
+
+
 ### Deploy your Apps
 
 App deployment consists of follwoing steps
