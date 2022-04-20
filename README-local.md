@@ -1,4 +1,4 @@
-# Running PetClinic App locally
+# Running PetClinic app locally
 
 First you need to work through all steps to [Configure config-server by Azure Spring Cloud](README.md#configure-config-server-by-azure-spring-cloud) in the previous document [here](README.md)
 
@@ -13,12 +13,14 @@ Run server/services in sequence
 7. vets-service 
 8. visits-service 
 
-Be careful that `discovery-server ` and `api-gateway` requires `config-server`, and rest of servers/services requires `discovery-server ` and `api-gateway`
+Be careful that `discovery-server` and `api-gateway` requires `config-server`, and rest of servers/services requires `discovery-server` and `api-gateway`
 
 From the commandline, start `config-server`
 
 ``
+
 bin/run.sh config-server
+
 ``
 
 It normally takes minutes. Check `config-server` logs from `logs`
@@ -28,14 +30,18 @@ It normally takes minutes. Check `config-server` logs from `logs`
 Start `discovery-server`, `api-gateway` and `admin-server`
 
 ``
+
 bin/run.sh discovery-server api-gateway
 bin/run.sh admin-server
+
 ``
 
 Then, you can run all the rest at once
 
 ``
+
 bin/run.sh customers-service vets-service visits-service consumer 
+
 ``
 
 After all instances up, open `http://localhost:8761/` from your web browser for Eureka Dashboard
