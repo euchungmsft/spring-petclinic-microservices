@@ -14,6 +14,10 @@ And check the source code `org.springframework.samples.petclinic.api.system.Swag
 
 If you want to make some changes in header part of this Swagger UI, check `apiInfo()` method. Bean `api()` is to define version and scope of the api. In this example, it's on `OAS3`, Open API 3.0 and selects all APIs under `org.springframework.samples.petclinic` in this module
 
+If you have deployed all modules as instructed in the previous document, it's only opened for `api-gateway` as default. You can 'Assign Endpoint' from 'Apps' on your Azure Spring Cloud instance for those three services
+
+![Assign Endpoint](media/oas-assign.png)
+
 > Note: Azure API Management supports Open API 3. See [this](https://azure.microsoft.com/ko-kr/blog/announcing-the-preview-of-openapi-specification-v3-support-in-azure-api-management/) for further details
 
 L22 ~ L26 is Swagger v2 format example which doesn't limit at all in this module
