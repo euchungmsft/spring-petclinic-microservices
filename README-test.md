@@ -6,7 +6,7 @@ There you need to install [JMeter](https://jmeter.apache.org/download_jmeter.cgi
 
 1. Config test by using JMeter
 2. Deploy the test to Azure Load Testing
-3. Run & Evaluating the test
+3. Evaluating the test
 
 ## 1. Config test by using JMeter
 
@@ -16,7 +16,7 @@ Open `tests/petclinic-test-all.jmx` from JMeter
 
 In the test plan, there you can find three Thread Groups on the left. 
 
-- `user-scenario-01` is scenario test navigating pages on PetClinic app which you may want to run for load testing. It only contains simply calling page in GET method in this example, but you can add cookies, custom headers, authentications and so on upon your needs.
+- `user-scenario-01` is scenario test navigating pages on PetClinic app which you may want to run for load testing. It only contains simply calling pages in GET method in this example, but you can add cookies, custom headers, authentications and so on upon your needs.
 
 - `api-testing-01` is for API test. API test's configured for 4 apis. It's for synthetic monitoring in operation for the APIs
 
@@ -30,14 +30,66 @@ What's Spring Boot actuator ? Monitoring the Spring Boot app, gathering metrics,
 Actuator is mainly used to expose operational information about the running application — health, metrics, info, dump, env, etc. It uses HTTP endpoints or JMX beans to enable us to interact with it.
 Once this dependency is on the classpath, several endpoints are available for us out of the box. As with most Spring modules, we can easily configure or extend it in many ways.
 
+On the right, you can see all variables externalized and parameterized for Azure Load Testing config
 
+For each of thread groups, you can find all settings with externalized arguments in each fields. You will define these parameters in the next step
 
+![Thread Config](media/alt-jmeter2.png)
 
+For assertions, there's a few example's implemented in this example
 
+![Assertion](media/alt-jmeter3.png)
+
+It checks if the status is UP or it's failed
+
+If eveything's fine with all settings, click on '>' button on the toolbar or press Contrl-R. After the test cycle's completed, you can find all results from each Listener items. For assertion results, it will look like this
+
+![Assertion](media/alt-jmeter4.png)
+
+Failed by mismatches, value expected to be zero-length string, but found '0.0'
 
 ## 2. Deploy the test to Azure Load Testing
 
-## 3. Run & Evaluating the test
+Create a Azure Load Test resource
+
+![ALT](media/alt-alt1.png)
+
+Location's limited on preview stage, select the closest region 
+
+Go to the Azure Load Test resource that you have created just now, click on 'Tests' blade on the left, and click on 'Create Test' on the right. 
+
+Name your test
+
+![ALT2](media/alt-alt2.png)
+
+Upload .jmx file that you have created in the previous step
+
+![ALT3](media/alt-alt3.png)
+
+Scale the test
+
+![ALT4](media/alt-alt4.png)
+
+Config failure/success criteria
+
+![ALT5](media/alt-alt5.png)
+
+Add resource to monitor while running the test
+
+![ALT6](media/alt-alt6.png)
+
+You can update all above settings at anytime you want
+
+Test results are recorded like this
+
+![TEST1](media/alt-test1.png)
+
+## 3. Evaluating the test
+
+Here's the test report as an example
+
+![Reports](media/cicd-alt-report.png)
+
 
 ## Trademarks
 
