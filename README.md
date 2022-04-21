@@ -19,32 +19,34 @@ You will need to check this config repos too. They provide app configs to your r
 
 Deploy Spring Boot apps using Azure Spring Cloud and Azure Services
 
-* Introduction
-  * What will you experience
-  * What you will need
+* [Introduction](#deploy-spring-boot-apps-using-azure-spring-cloud-and-azure-services)
+  * [What will you experience](#what-you-will-experience)
+  * [What you will need](#what-you-will-need)
 
-* The App, PetClinic 
-  * The application architecture
-  * Deployment architecture - Basic
-  * Deployment architecture - Standard
+* [The App, PetClinic](#the-app-petclinic)
+  * [The application architecture](#the-application-architecture-with-all-components-and-elements)
+  * [Deployment architecture - Basic](#deployment-architecture---basic)
+  * [Deployment architecture - Standard](#deployment-architecture---standard)
 
-* Deploying PetClinic App, step by step instruction
-  * Cloning the repo
-  * Provisioning Azure Services
-  * Building the apps
-  * Creating the apps on Azure Srping Cloud
-  * Deploying the apps on Azure Srping Cloud
-  * Testing the app
-  * Monitoring the app
+* [Deploying PetClinic App, step by step instruction](#deploying-petclinic-app-step-by-step-instruction)
+  * [Cloning the repo](#clone-and-build-the-repo)
+  * [Configuring your project](#configure-your-project)
+  * [Provisioning Azure Services](#provision-azure-services)
+  * [Configure and integrate the Azure services](#configure-and-integrate-the-azure-services)
+  * [Configure PetClinic app](#configure-petclinic-app)
+  * [Configure config-server by Azure Spring Cloud](#configure-config-server-by-azure-spring-cloud)
+  * [Deploy your Apps](#deploy-your-apps)
+  * [Testing the app](#testing-your-apps)
+  * [Monitoring the app](#monitoring-your-app)
 
-* PetClinic Swagger/OAS3 for API Management Integration
+* [PetClinic Swagger/OAS3 for API Management Integration](#petclinic-swaggeroas3-for-api-management-integration)
 
-* Fully managed testing for PetClinic app
+* [Fully managed testing for PetClinic app](#fully-managed-testing-for-petclinic-app)
 
 * [PetClinic on Automated CI/CD with GitHub Action](#petclinic-on-automated-cicd-with-github-action)
   * CI/CD on GitHub Action
   * CI/CD in action with the app
-  * Green/blue, Canary release with the app
+  * Green/blue, Canary release with the app <On the roadmap>
 
 ## What you will experience
 
