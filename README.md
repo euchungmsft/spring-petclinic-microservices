@@ -36,7 +36,10 @@ Deploy Spring Boot apps using Azure Spring Cloud and Azure Services
   * Deploying the apps on Azure Srping Cloud
   * Testing the app
   * Monitoring the app
-  * APIM integration
+
+* PetClinic Swagger/OAS3 for API Management Integration
+
+* Fully managed testing for PetClinic app
 
 * PetClinic on Automated CI/CD with GitHub Action
   * CI/CD on GitHub Action
@@ -629,6 +632,10 @@ Navigate to Live Metrics blade, you can see live metrics on screen with low late
 ## PetClinic Swagger/OAS3 for API Management Integration
 
 Find this [document](README-swagger.md) for the instructions
+
+## Fully managed testing for PetClinic app
+
+Find this [document](README-test.md) for the instructions
 
 ## PetClinic on Automated CI/CD with GitHub Action
   * CI/CD on GitHub Action
