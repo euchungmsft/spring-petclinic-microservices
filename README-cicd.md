@@ -10,7 +10,7 @@ This document introduces pratical cases of CI/CD pipelines implemented in GitHub
 2. Workflows for build and test
 3. Workflows for build, test and deploy
 4. Workflows for tests
-5. Workflows for security test
+5. Workflows for security(penetration) test
 
 ## 1. The architecture of CI/CD automation 
 
@@ -27,6 +27,10 @@ It covers
 * Automated load tests for the apps 
 * Synthetic monitoring for the APIs 
 * Automated security test for the app
+
+On your Github Action
+
+![GH A0](media/devo-s00.png)
 
 ## 2. Workflows for Build and Test (CI)
 
@@ -84,10 +88,73 @@ Browse by instances (runtime)
 
 ![CI5-2](media/devo-ci5-2.png)
 
+On your Github Action
+
+![GH A2](media/devo-s02.png)
+
 
 ## 3. Workflows for Build, Test and Deploy (CI/CD)
+
+Pipeline looks like this in `.github/workflows/cd-build-deploy-customer.yml`
+
+![CICD](media/devo-cicd.png)
+
+- Multiple jobs in the workflow, init, build, deploy skipping test
+- Cache's configured 
+
+Each jobs on Github Action runners start in a clean virtual environment and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. To help speed up the time it takes to recreate these files, GitHub can cache dependencies you frequently use in workflows
+
+In this example there are 2 cache's defined for builds and deploys to store .m2 repo and app packages for each jobs
+
+On your Github Action
+
+![GH A3](media/devo-s03.png)
+
 ## 4. Workflows for Continuous Validation (CV)
-## 5. Workflows for Security Test (CV)
+
+Pipeline looks like this in `.github/workflows/cv-tests-scenarios.yml`
+
+![CV](media/devo-cv.png)
+
+- Same config's found from `cv-tests-apis.yml`, `cv-monitorings-apis.yml` 
+
+These workflows calls Azure Load Testing with tests and test configs as arguments which you can find `tests` folder. Tests need to be configured separately, you can find instructions from [here](README-test.md)
+
+Test results are found from Azure Load Testing portal 
+
+![Test Results](media/alt-test1.png)
+
+These tests are scheduled. You can schedule them to run at specific UTC times using POSIX cron syntax. Scheduled workflows run on the latest commit on the default or base branch. Find further details from [here](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)
+
+![Shceduled](media/devo-02.png)
+
+On your Github Action
+
+![GH A1](media/devo-s01.png)
+
+
+## 5. Workflows for Security(Penetration) Test (CV)
+
+Pipeline looks like this in `.github/workflows/cv-security-test.yml`
+
+![Sec](media/devo-sec.png)
+
+In this example, ZAP pluin's used (https://www.zaproxy.org/) for (full scan), baseline scan and API scan. 
+
+Pentesting in this example follows these stages:
+
+- Explore – The tester attempts to learn about the system being tested. This includes trying to determine what software is in use, what endpoints exist, what patches are installed, etc. It also includes searching the site for hidden content, known vulnerabilities, and other indications of weakness.
+- Attack – The tester attempts to exploit the known or suspected vulnerabilities to prove they exist.
+- Report – The tester reports back the results of their testing, including the vulnerabilities, how they exploited them and how difficult the exploits were, and the severity of the exploitation.
+
+ZAP plugin posts the test report as Issue on your repo. Here's an example
+
+![ZAP Report](media/devo-01.png)
+
+On your Github Action
+
+![GH A1](media/devo-s01.png)
+
 
 ## Trademarks
 
