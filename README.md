@@ -44,9 +44,10 @@ Deploy Spring Boot apps using Azure Spring Cloud and Azure Services
 * [Fully managed testing for PetClinic app](#fully-managed-testing-for-petclinic-app)
 
 * [PetClinic on Automated CI/CD with GitHub Action](#petclinic-on-automated-cicd-with-github-action)
-  * CI/CD on GitHub Action
-  * CI/CD in action with the app
-  * Green/blue, Canary release with the app <On the roadmap>
+  * CI and CI/CD Workflows
+  * Configure workflows for CI
+  * Configure workflows for CI/CD
+  * Reviewing workflows
 
 ## What you will experience
 
@@ -640,9 +641,10 @@ Find this [document](README-swagger.md) for the instructions
 Find this [document](README-test.md) for the instructions
 
 ## PetClinic on Automated CI/CD with GitHub Action
-  * CI/CD on GitHub Action
-  * CI/CD in action with the app
-  * Green/blue, Canary release with the app
+  * CI and CI/CD Workflows
+  * Configure workflows for CI
+  * Configure workflows for CI/CD
+  * Reviewing workflows
 
 ### Before you start
 
@@ -650,12 +652,12 @@ You need two Azure credentials stored on the repo. One's for Azure login from CL
 
 ![Repo Secretes](media/step-gh-repo-secrets.png)
 
-### Workflows for CI and CI/CD
+### CI and CI/CD Workflows
 
 There are two workflows defined in `.github\workflows` 
 
-* build-maven.yml ... full build by Maven with testing
-* build-deploy-maven.yml ... full build by Maven skipping testing and deploy
+* ci-build-all.yml ... full build by Maven with testing
+* cd-build-deploy-all.yml ... full build by Maven skipping testing and deploy
 
 Go to Actions on your repo, it will look like this
 
@@ -663,7 +665,7 @@ Go to Actions on your repo, it will look like this
 
 ### Configure workflows for CI
 
-For `build-maven.yml`, update PROJECT_NAME, AZURE_RESOURCE_GROUP_NAME on env section on the top
+For `ci-build-all.yml`, update PROJECT_NAME, AZURE_RESOURCE_GROUP_NAME on env section on the top
 
 ```
 name: PetClinic - Full Build, Maven
@@ -727,7 +729,7 @@ It consists of these steps
 6. Deploy the apps for each - `api-gateway`, `admin-server`, `customers-service`, `vets-service`, `visits-service`, `consumer-service`
 7. Log out from Azure
 
-### Configure workflows for CI/CD
+### Reviewing workflows
 
 Navigate to Actions on your repo
 
