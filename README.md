@@ -62,10 +62,10 @@ You will
 - Monitor the applications
 - Integrate with APIM using Swagger doc
 - Automate deployments using GitHub Actions
-- Learn how to store sensitive informtion to Azure Key Vault Secret and how to use/manage them
-- Learn how to implement second level cache transparently using Azure Cache for Redis for better performance
-- Learn how to implement Spring Cloud Stream backed by Azure Event Hub replacing Kafka you might have been using
-- Learn how to implement Spring Data backed by Azure CosmosDB replacing MongoDB 
+- Find how to store sensitive informtion to Azure Key Vault Secret and how to use/manage them
+- Find how to implement second level cache transparently using Azure Cache for Redis for better performance
+- Find how to implement Spring Cloud Stream backed by Azure Event Hub replacing Kafka you might have been using
+- Find how to implement Spring Data backed by Azure CosmosDB replacing MongoDB 
 
 ## What you will need
 
