@@ -18,6 +18,7 @@ var vMySQLName = '${projectName}-mysql'
 var vEventHubName = '${projectName}-eventhub'
 var vRedisName = '${projectName}-redis'
 var vCosmoDBName = '${projectName}-cosmosdb'
+var vAPIMName = '${projectName}-apim'
 
 param servicePrincipal object = {
   clientId: '--'
@@ -71,5 +72,16 @@ module stgCSMS 'services/csms-template.bicep' = {
   params: {
     gLocation: location
     csms_name: vCosmoDBName
+  }
+}
+
+module stgAPIM 'services/apim-template.bicep' = {
+  name: 'create-apim'
+  params: {
+    location: location
+    apiManagementServiceName: vAPIMName
+    publisherEmail: 'admin@acme.com'
+    publisherName: 'acme dev'
+    sku: 'Standard'
   }
 }

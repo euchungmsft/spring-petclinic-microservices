@@ -287,6 +287,7 @@ It consists of
 3. Event Hub creation 
 4. Redis creation 
 5. Cosmos DB creation 
+6. APIM creation 
 
 Check `iac/bicep/services-main.bicep` for further details
 
