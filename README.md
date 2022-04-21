@@ -49,10 +49,7 @@ Deploy Spring Boot apps using Azure Spring Cloud and Azure Services
   * [Configure workflows for CI/CD](#configure-workflows-for-cicd)
   * [Reviewing workflows](#reviewing-workflows)
 
-* [Automated CI/CD in practice]
-
-Find this [document](README-cicd.md) for the instructions
-
+* [Automated CI/CD in practice](#automated-cicd-in-practice)
 
 ## What you will experience
 
@@ -758,7 +755,7 @@ When it's successfully done with test steps, it looks like this
 
 ## Automated CI/CD in practice
 
-Find this [document](README-cicd.md) for the instructions
+Find this [document](README-cicd.md) for furtehr details
 
 
 
