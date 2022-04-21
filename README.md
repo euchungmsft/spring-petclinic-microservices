@@ -44,10 +44,10 @@ Deploy Spring Boot apps using Azure Spring Cloud and Azure Services
 * [Fully managed testing for PetClinic app](#fully-managed-testing-for-petclinic-app)
 
 * [PetClinic on Automated CI/CD with GitHub Action](#petclinic-on-automated-cicd-with-github-action)
-  * CI and CI/CD Workflows
-  * Configure workflows for CI
-  * Configure workflows for CI/CD
-  * Reviewing workflows
+  * [CI and CI/CD Workflows](#ci-and-cicd-workflows)
+  * [Configure workflows for CI](#configure-workflows-for-ci)
+  * [Configure workflows for CI/CD](#configure-workflows-for-cicd)
+  * [Reviewing workflows](#reviewing-workflows)
 
 ## What you will experience
 
@@ -693,7 +693,7 @@ It consists of these steps
 
 ### Configure workflows for CI/CD
 
-For `build-deploy-maven.yml`, 
+For `cd-build-deploy-all.yml`, 
 
 ```
 name: PetClinic - Build & Deploy, Maven
