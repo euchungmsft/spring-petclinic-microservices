@@ -36,6 +36,7 @@ Deploy Spring Boot apps using Azure Spring Cloud and Azure Services
   * Deploying the apps on Azure Srping Cloud
   * Testing the app
   * Monitoring the app
+  * APIM integration
 
 * PetClinic on Automated CI/CD with GitHub Action
   * CI/CD on GitHub Action
@@ -51,6 +52,7 @@ You will
 - Bind applications to Azure services
 - Open and test the applications
 - Monitor the applications
+- Integrate with APIM using Swagger doc
 - Automate deployments using GitHub Actions
 - Learn how to store sensitive informtion to Azure Key Vault Secret and how to use/manage them
 - Learn how to implement second level cache transparently using Azure Cache for Redis for better performance
@@ -623,6 +625,10 @@ Navigate to the Metrics blade
 Navigate to Live Metrics blade, you can see live metrics on screen with low latencies < 1 second
 ![Application Insights Live Metrics](media/step-appinsights-metrics.png)
 
+
+## PetClinic Swagger/OAS3 for API Management Integration
+
+Find this [document](README-swagger.md) for the instructions
 
 ## PetClinic on Automated CI/CD with GitHub Action
   * CI/CD on GitHub Action
