@@ -41,7 +41,7 @@ Deploy Spring Boot apps using Azure Spring Cloud and Azure Services
 
 * Fully managed testing for PetClinic app
 
-* PetClinic on Automated CI/CD with GitHub Action
+* [PetClinic on Automated CI/CD with GitHub Action](#petclinic-on-automated-cicd-with-github-action)
   * CI/CD on GitHub Action
   * CI/CD in action with the app
   * Green/blue, Canary release with the app
