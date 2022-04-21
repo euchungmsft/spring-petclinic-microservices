@@ -107,7 +107,7 @@ Based on the PetClinic App, [Azure-Samples/spring-petclinic-microservices](https
 * All app components bound to Azure Files as permanent storage
 * All app components with data acess gets second level cache on Redis
 * All components bound to Log Analytics to send logs and metrics
-* Endpoints to admin-server and api-gateway for extenal access
+* Endpoints to `admin-server` and `api-gateway` for extenal access
 * config-server in Azure Spring Cloud gets the app configs from repos on GitHub with authentication
 * CI/CD by GitHub Actions are added with appropriate authentication to access the resources on Azure
 
@@ -509,7 +509,7 @@ bin/spring-cloud.sh append-persistent-storage visits-service
 bin/spring-cloud.sh append-persistent-storage consumer-service
 ```
 
-Run all of these at once. We only bind the storage to the app components, not for api-gateway, admin-server
+Run all of these at once. We only bind the storage to the app components, not for `api-gateway`, `admin-server`
 
 #### Deploy apps
 
@@ -543,7 +543,7 @@ Once you have done all app deployments, you'll see something like this
 
 ![Spring Cloud Apps](media/step-springcloud-apps.png)
 
-Both of api-gateway and admin servers are assigned endpoints. On your portal UI, select your Spring Cloud instance, click on Apps, select api-gateway from right, click on the URL on Overview
+Both of `api-gateway` and admin servers are assigned endpoints. On your portal UI, select your Spring Cloud instance, click on Apps, select `api-gateway` from right, click on the URL on Overview
 
 ![api-gateway overview](media/step-api-gateway.png)
 
@@ -724,7 +724,7 @@ It consists of these steps
 3. Log on to Azure
 4. Setting up redisson.json with your Redis key as password and place it to `/src/main/resources/` of each app components
 5. Maven clean, package skipping test
-6. Deploy the apps for each - api-gateway, admin-server, customers-service, vets-service, visits-service, consumer-service
+6. Deploy the apps for each - `api-gateway`, `admin-server`, `customers-service`, `vets-service`, `visits-service`, `consumer-service`
 7. Log out from Azure
 
 ### Configure workflows for CI/CD
