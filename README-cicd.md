@@ -48,21 +48,18 @@ Number of 3rd party plugins were instrumented for this in Maven build file. And 
 
 At each steps, test results and reports may look like these
 
-
-<a href="media/devo-ci1.png" target="_blank">Screenshot</a>
-
-- Environment verification by enforcer plugin. [screenshot](media/devo-ci1.png){:target="_blank"}
-- OWASP vulnarability check by dependency-check plugin. [screenshot](media/devo-ci2.png){:target="_blank"}
+- Environment verification by enforcer plugin. [screenshot](media/devo-ci1.png)
+- OWASP vulnarability check by dependency-check plugin. [screenshot](media/devo-ci2.png)
 - Vulnarability checks for Java code by SpotBugs plugin 
-  - What it looks like on the console, on succeed [screenshot](media/devo-ci3.png){:target="_blank"}
-  - On the report in XML format, on succeed [screenshot](media/devo-ci3-1.png){:target="_blank"}
-  - What it looks like on the console, on failure [screenshot](media/devo-ci3-2.png){:target="_blank"}
-  - On the report, on failure [screenshot](media/devo-ci3-3.png){:target="_blank"}
-- Unit test results which defined in JUnit, on succeed [screenshot](media/devo-ci4.png){:target="_blank"}
+  - What it looks like on the console, on succeed [screenshot](media/devo-ci3.png)
+  - On the report in XML format, on succeed [screenshot](media/devo-ci3-1.png)
+  - What it looks like on the console, on failure [screenshot](media/devo-ci3-2.png)
+  - On the report, on failure [screenshot](media/devo-ci3-3.png)
+- Unit test results which defined in JUnit, on succeed [screenshot](media/devo-ci4.png)
 - Code coverage report by JaCoCo plugin
-  - Overview [screenshot](media/devo-ci5.png){:target="_blank"}
-  - Browse by classes (code) [screenshot](media/devo-ci5-1.png){:target="_blank"}
-  - Browse by instances (runtime) [screenshot](media/devo-ci5-2.png){:target="_blank"}
+  - Overview [screenshot](media/devo-ci5.png)
+  - Browse by classes (code) [screenshot](media/devo-ci5-1.png)
+  - Browse by instances (runtime) [screenshot](media/devo-ci5-2.png)
 
 On your Github Action
 
