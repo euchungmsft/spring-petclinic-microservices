@@ -57,10 +57,9 @@ Number of 3rd party plugins were instrumented for this in Maven build file. And 
 
 At each steps, test results and reports may look like these
 
-<details><summary>Environment verification by enforcer plugin</summary>
-  <p>
-    ![shot](media/devo-ci1.png)
-  </p></details>
+Environment verification by enforcer plugin<details><summary>sdd</summary>
+    ![Shot](media/devo-ci1.png)
+</details>
 - OWASP vulnarability check by dependency-check plugin. [screenshot](media/devo-ci2.png)
 - Vulnarability checks for Java code by SpotBugs plugin.
   - What it looks like on the console, on succeed [screenshot](media/devo-ci3.png)
