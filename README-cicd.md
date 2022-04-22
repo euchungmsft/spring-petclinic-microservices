@@ -4,13 +4,22 @@ GitHub Actions is a continuous integration and continuous delivery (CI/CD) platf
 
 GitHub Actions goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
 
-This document introduces practical cases of CI/CD pipelines that you may want to implement on GitHub Action
+This document introduces practical examples of CI/CD pipelines that you may want to implement on GitHub Action. 
 
 1. [The architecture of CI/CD automation](#1-the-architecture-of-cicd-automation)
 2. [Workflows for build and test](#2-workflows-for-build-and-test-ci)
 3. [Workflows for build, test and deploy](3-workflows-for-build-test-and-deploy-cicd)
 4. [Workflows for tests](4-workflows-for-continuous-validation-cv)
 5. [Workflows for security(penetration) test](5-workflows-for-securitypenetration-test-cv)
+
+Coding – Building – Testing/Security – Packaging – Releasing – Configuring – Monitoring, it covers end-to-end of development and delivery process in the real world project "Shifting Left" the security covers three major area of static, composition and dynamic
+
+For Security testing, you'll find in these example workflows,
+
+- Vulnerability Assessment – The PetClinic app is scanned and analyzed for security issues.
+- Penetration Testing – The PetClinic app undergoes analysis and attack from simulated malicious attackers.
+- Runtime Testing – The PetClinic app undergoes analysis and security testing from an end-user.
+- Code Review – The PetClinic app code undergoes a detailed review and analysis looking specifically for security vulnerabilities.
 
 ## 1. The architecture of CI/CD automation 
 
@@ -65,7 +74,6 @@ On your Github Action
 
 ![GH A2](media/devo-s02.png)
 
-
 ## 3. Workflows for Build, Test and Deploy (CI/CD)
 
 Configuration of the pipeline looks like this which you can find from  `.github/workflows/cd-build-deploy-customer.yml`
@@ -73,9 +81,10 @@ Configuration of the pipeline looks like this which you can find from  `.github/
 ![CICD](media/devo-cicd.png)
 
 - Multiple jobs in the workflow, init, build, deploy skipping test
+- Triggered by schedule event on Actions
 - Cache's configured 
 
-Each jobs on Github Action runners start in a clean virtual environment and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. To help speed up the time it takes to recreate these files, GitHub can cache dependencies you frequently use in workflows
+Each jobs on Github Action runners start in a clean virtual environment and must download dependencies each time(jobs), causing increased network utilization, longer runtime, and increased cost. To help speed up the time it takes to recreate these files, GitHub can cache dependencies you frequently use in workflows
 
 In this example there are 2 cache's defined for builds and deploys to store .m2 repo and app packages for each jobs
 
@@ -90,8 +99,9 @@ Configuration of the pipeline looks like this which you can find from `.github/w
 ![CV](media/devo-cv.png)
 
 - Same config's found from `cv-tests-apis.yml`, `cv-monitorings-apis.yml` 
+- Triggered by schedule event on Actions
 
-These workflows calls Azure Load Testing with tests and test configs as arguments which you can find `tests` folder. Tests need to be configured separately, you can find instructions from [here](README-test.md)
+These workflows calls Azure Load Testing with tests and test configs as arguments which you can find `tests` folder. Each tests needs to be configured separately on your Azure Load Testing resource on the portal, you can find instructions from [here](README-test.md)
 
 Test results are found from Azure Load Testing portal 
 
@@ -112,15 +122,17 @@ Configuration of the pipeline looks like this which you can find from `.github/w
 
 ![Sec](media/devo-sec.png)
 
+- Triggered by schedule event on Actions
+
 In this example, ZAP pluin's used (https://www.zaproxy.org/) for (full scan), baseline scan and API scan. 
 
-Pentesting in this example follows these stages:
+Penetration test in this example follows these stages:
 
 - Explore – The tester attempts to learn about the system being tested. This includes trying to determine what software is in use, what endpoints exist, what patches are installed, etc. It also includes searching the site for hidden content, known vulnerabilities, and other indications of weakness.
 - Attack – The tester attempts to exploit the known or suspected vulnerabilities to prove they exist.
 - Report – The tester reports back the results of their testing, including the vulnerabilities, how they exploited them and how difficult the exploits were, and the severity of the exploitation.
 
-ZAP plugin posts the test report as Issue on your repo. Here's an example
+ZAP plugin posts the test results as Issue on your repo. Here's an example
 
 ![ZAP Report](media/devo-01.png)
 
@@ -128,12 +140,17 @@ On your Github Action
 
 ![GH A1](media/devo-s01.png)
 
+For notifications, you can add notification in the final step of each workflows using plugins such as
 
-On your Github Action
+- Posting failure as an issue on your repo, [Issues Notifier](https://github.com/marketplace/actions/issues-notifier)
+- Sending failure over [Slack Notification](https://github.com/marketplace/actions/slack-notification)
+- Sending failure over [Repository Notifications](https://github.com/marketplace/actions/repository-notifications)
+- Sending failure over [Send mail Github Action](https://github.com/marketplace/actions/send-email)
+- Sending failure over [SMS using Azure Logic Apps with Azure Communication Services] https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/sms/logic-app
+
+Overall, on your Github Action
 
 ![GH A0](media/devo-s00.png)
-
-
 
 
 ## Trademarks
