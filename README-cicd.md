@@ -12,7 +12,7 @@ This document introduces practical examples of CI/CD pipelines that you may want
 4. [Workflows for tests](4-workflows-for-continuous-validation-cv)
 5. [Workflows for security(penetration) test](5-workflows-for-securitypenetration-test-cv)
 
-*Coding – Building – Testing & Security – Packaging – Releasing – Configuring – Monitoring*, it covers end-to-end of development and delivery process in the real world project "Shifting Left" the security covers all three major area of static, composition and dynamic
+*Coding – Building – Testing & Security – Packaging – Releasing – Configuring – Monitoring*, it covers end-to-end of development and delivery process in the real world project ***"Shifting Left"*** the security covers all three major area of static, composition and dynamic
 
 For security testing, you'll find in these example workflows,
 
