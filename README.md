@@ -756,7 +756,7 @@ When it's successfully done with test steps, it looks like this
 
 ## Automated CI/CD in practice
 
-Find this [document](README-cicd.md) for furtehr details
+Find this [document](README-cicd.md) for further details
 
 
 
