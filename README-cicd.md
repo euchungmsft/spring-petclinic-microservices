@@ -46,6 +46,11 @@ Configuration of the pipeline looks like this which you can find from `.github/w
 
 Number of 3rd party plugins were instrumented for this in Maven build file. And you can find Github Action plugins from Marketplace for [Code quality](github.com/marketplace?category=code-quality&type=actions) and [Code review](https://github.com/marketplace?category=code-review&type=actions)
 
+At each steps, test results and reports may look like these
+
+
+<a href="media/devo-ci1.png" target="_blank">Screenshot</a>
+
 - Environment verification by enforcer plugin. [screenshot](media/devo-ci1.png){:target="_blank"}
 - OWASP vulnarability check by dependency-check plugin. [screenshot](media/devo-ci2.png){:target="_blank"}
 - Vulnarability checks for Java code by SpotBugs plugin 
