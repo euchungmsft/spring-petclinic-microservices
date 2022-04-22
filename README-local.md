@@ -17,7 +17,7 @@ Be careful that `discovery-server` and `api-gateway` requires `config-server`, a
 
 From the commandline, start `config-server`
 
-```
+```bash
 
 bin/run.sh config-server
 
@@ -29,7 +29,7 @@ It normally takes minutes. Check `config-server` logs from `logs`
 
 Start `discovery-server`, `api-gateway` and `admin-server`
 
-```
+```bash
 
 bin/run.sh discovery-server api-gateway
 bin/run.sh admin-server
@@ -38,7 +38,7 @@ bin/run.sh admin-server
 
 Then, you can run all the rest at once
 
-```
+```bash
 
 bin/run.sh customers-service vets-service visits-service consumer 
 

@@ -54,6 +54,7 @@ Deploy Spring Boot apps using Azure Spring Cloud and Azure Services
 ## What you will experience
 
 You will
+
 - Build an existing Spring Boot/Cloud applications
 - Provision Azure Spring Cloud service and Azure Services using Bicep template from commandline or/and portal. See [what is Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 - Deploy applications to Azure
@@ -140,7 +141,7 @@ Secure and dedicated deployment for serious purpose
 
 Create a new folder and clone the repositories to your environment
 
-```
+```bash
 mkdir [your source code folder name]
 cd [your source code folder name]
 git clone [your source code repo URL, or https://github.com/euchungmsft/spring-petclinic-microservices]
@@ -151,7 +152,7 @@ spring-petclinic-microservices is source code and working repo, spring-petclinic
 
 Change directory and build the project.
 
-```
+```bash
 cd spring-petclinic-microservices
 mvn clean package -DskipTests -Denv=cloud
 ```
@@ -162,13 +163,13 @@ This will take a few minutes.
 
 Rename .env-example to .env and update it
 
-```
+```bash
 mv .env-example .env
 ```
 
 Open .env
 
-```
+```yaml
 PROJECT_NAME=[your project name, to give names to all resoures]
 
 RESOURCE_GROUP=${PROJECT_NAME}-rg
@@ -181,18 +182,18 @@ PROJECT_NAME is for automatically naming the resources. MY_UPN is User Principal
 
 Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
 
-```
+```bash
 az login 
 ```
 or 
 
-```
+```bash
 az login --use-device-code
 ```
 
 You need a Resource Group and Service Principal to authenticate from your environment. Simply run `bin/init.sh`, it consist of steps listed below
 
-```
+```bash
 bin/init.sh
 ```
 
@@ -203,7 +204,7 @@ bin/init.sh
 
 and you'll get something like this as a result of step-2. Save it for later steps
 
-```
+```json
 {
   "clientId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
   "clientSecret": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
@@ -220,7 +221,7 @@ and you'll get something like this as a result of step-2. Save it for later step
 
 .env must be updated like this already. Check AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, AZURE_TENANT_ID if they are correct
 
-```
+```yaml
 AZURE_CLIENT_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 AZURE_CLIENT_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 AZURE_TENANT_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -229,7 +230,7 @@ AZURE_OBJECT_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 
 AZURE_OBJECT_ID is automatically updated in the shell script with command like below. Once you've done `bin/init.sh` successfully, you don't have to run this separately
 
-```
+```bash
 az ad sp show --id $AZURE_CLIENT_ID | jq -r .objectId
 ```
 
@@ -237,19 +238,19 @@ az ad sp show --id $AZURE_CLIENT_ID | jq -r .objectId
 
 Load all required variables in your environment
 
-```
+```bash
 source ./.env
 ```
 
 Set default sunscription to use in this example
 
-```
+```bash
 az account set --subscription ${SUBSCRIPTION}
 ```
 
 Provision infrastructure components and Azure Spring Cloud
 
-```
+```bash
 az deployment group create \
  -g $RESOURCE_GROUP \
  -f iac/bicep/spc-main.bicep \
@@ -272,7 +273,7 @@ Check `iac/bicep/spc-main.bicep` for further details
 
 Provision Azure services
 
-```
+```bash
 az deployment group create \
  -g $RESOURCE_GROUP \
  -f iac/bicep/services-main.bicep \
@@ -303,7 +304,7 @@ Check `iac/bicep/services-main.bicep` for further details
 
 Configure log analytics
 
-```
+```bash
 bin/loganalytics-diagnostics.sh
 ```
 
@@ -320,7 +321,7 @@ To add Application Insights in your environment, on your portal, select your spr
 
 Give permission to access KeyVault secrets
 
-```
+```bash
 az keyvault set-policy --name $KEY_VAULT \
 --upn $MY_UPN \
 --secret-permissions all
@@ -332,7 +333,7 @@ az keyvault set-policy --name $KEY_VAULT \
 
 Initialize MySQL
 
-```
+```bash
 mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
  -h ${MYSQL_SERVER_FULL_NAME} \
  -P 3306 "--password=$MYSQL_SERVER_ADMIN_PASSWORD" \
@@ -351,7 +352,7 @@ If you get trouble to access your MySQL from your environment, Cloud Shell is an
 
 Adding Storage Account
 
-```
+```bash
 KEY0=`az storage account keys list -g $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT_NAME  | jq -r .[0].value`
 echo $KEY0
 az spring-cloud storage add \
@@ -365,7 +366,7 @@ az spring-cloud storage add \
 
 In your `spring-petclinic-microservices-config` repo, open `application.yml`. Find `on-profile: mysql` section in the middle. The app will work with this profile
 
-```
+```yaml
 spring:
   config:
     activate:
@@ -399,7 +400,7 @@ spring:
 
 Commit and push it to your remote repo
 
-```
+```bash
 git remote add origin https://github.com/<your gh account name>/spring-petclinic-microservices-config
 git push -u origin master
 ```
@@ -408,13 +409,13 @@ git push -u origin master
 
 Back to `spring-petclinic-microservices`, make a copy `application.yml.example` to `application.yml`
 
-```
+```bash
 cp application.yml.example application.yml
 ```
 
 Customize `application.yml` 
 
-```
+```yaml
 spring:
   cloud:
     config:
@@ -436,7 +437,7 @@ Your developer token is from your GitHub account setttings. See [this](https://d
 
 Once config-server configuration's ready, run this from your command line
 
-```
+```bash
 az spring-cloud config-server set \
  --config-file application.yml \
  --name ${SPRING_CLOUD_SERVICE}
@@ -458,7 +459,7 @@ Now you're ready to deploy your app.
 
 This example uses redisson for second level cache with Redis. You need to create redisson config first with the brand new Redis instance that you have created in the previous step, and copy it to all services that second level cache's configured - `customer-service`, `vets-service`, `visits-service` 
 
-```
+```bash
 
 KEY0=`az redis list-keys --name ${PROJECT_NAME}-redis --resource-group ${RESOURCE_GROUP} | jq -r .primaryKey`
 echo "{\"singleServerConfig\":{\"address\": \"redis://${PROJECT_NAME}-redis.redis.cache.windows.net:6379\", \"password\": \"$KEY0\"}}" > redisson.json
@@ -472,7 +473,7 @@ cp redisson.json spring-petclinic-${VISITS_SERVICE}/src/main/resources/
 
 Rebuild the apps with the redisson updates
 
-```
+```bash
 mvn clean package -DskipTests -Denv=cloud
 ```
 
@@ -492,7 +493,7 @@ These steps are repeating, for your convenience, there's a bash script `bin/spri
 
 #### Create Apps
 
-```
+```bash
 bin/spring-cloud.sh create api-gateway
 bin/spring-cloud.sh create admin-server
 bin/spring-cloud.sh create customers-service
@@ -505,7 +506,7 @@ Run all of these at once. It normally takes minutes. Both config and discover se
 
 #### Append persistent storage to your apps
 
-```
+```bash
 bin/spring-cloud.sh append-persistent-storage customers-service
 bin/spring-cloud.sh append-persistent-storage vets-service
 bin/spring-cloud.sh append-persistent-storage visits-service
@@ -516,7 +517,7 @@ Run all of these at once. We only bind the storage to the app components, not fo
 
 #### Deploy apps
 
-```
+```bash
 bin/spring-cloud.sh deploy api-gateway
 bin/spring-cloud.sh deploy admin-server
 bin/spring-cloud.sh deploy customers-service
@@ -529,7 +530,7 @@ Run all of these at once. It normally takes minutes
 
 #### Browse logs
 
-```
+```bash
 bin/spring-cloud.sh logs api-gateway
 bin/spring-cloud.sh logs admin-server
 bin/spring-cloud.sh logs customers-service
@@ -561,7 +562,7 @@ Navigate from menu on the top
 
 You can simply run these commands from your shell
 
-```
+```bash
 curl -X GET https://${SPRING_CLOUD_SERVICE}-${API_GATEWAY}.azuremicroservices.io/api/customer/owners
 curl -X GET https://${SPRING_CLOUD_SERVICE}-${API_GATEWAY}.azuremicroservices.io/api/customer/owners/4
 curl -X GET https://${SPRING_CLOUD_SERVICE}-${API_GATEWAY}.azuremicroservices.io/api/customer/owners/ 
@@ -581,7 +582,7 @@ What's Actuators ? They bring production-ready features to the Spring Boot apps 
 Actuator is mainly used to expose operational information about the running application — health, metrics, info, dump, env, etc. It uses HTTP endpoints or JMX beans to enable us to interact with it. See [this](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html) for further details
 
 
-```
+```bash
 curl -X GET https://${SPRING_CLOUD_SERVICE}-${API_GATEWAY}.azuremicroservices.io/actuator/
 curl -X GET https://${SPRING_CLOUD_SERVICE}-${API_GATEWAY}.azuremicroservices.io/actuator/env
 curl -X GET https://${SPRING_CLOUD_SERVICE}-${API_GATEWAY}.azuremicroservices.io/actuator/configprops
@@ -669,7 +670,7 @@ Go to Actions on your repo, it will look like this
 
 For `ci-build-all.yml`, update PROJECT_NAME, AZURE_RESOURCE_GROUP_NAME on env section on the top
 
-```
+```yaml
 name: PetClinic - Full Build, Maven
 
 on:
@@ -697,7 +698,7 @@ It consists of these steps
 
 For `cd-build-deploy-all.yml`, 
 
-```
+```yaml
 name: PetClinic - Build & Deploy, Maven
 
 on:
