@@ -12,14 +12,14 @@ This document introduces practical examples of CI/CD pipelines that you may want
 4. [Workflows for tests](4-workflows-for-continuous-validation-cv)
 5. [Workflows for security(penetration) test](5-workflows-for-securitypenetration-test-cv)
 
-Coding – Building – Testing/Security – Packaging – Releasing – Configuring – Monitoring, it covers end-to-end of development and delivery process in the real world project "Shifting Left" the security covers three major area of static, composition and dynamic
+Coding – Building – Testing & Security – Packaging – Releasing – Configuring – Monitoring, it covers end-to-end of development and delivery process in the real world project "Shifting Left" the security covers all three major area of static, composition and dynamic
 
-For Security testing, you'll find in these example workflows,
+For security testing, you'll find in these example workflows,
 
-- Vulnerability Assessment – The PetClinic app is scanned and analyzed for security issues.
-- Penetration Testing – The PetClinic app undergoes analysis and attack from simulated malicious attackers.
-- Runtime Testing – The PetClinic app undergoes analysis and security testing from an end-user.
-- Code Review – The PetClinic app code undergoes a detailed review and analysis looking specifically for security vulnerabilities.
+- Code Review – detailed review and analysis at code level looking specifically for security vulnerabilities.
+- Vulnerability Assessment – scanning and analyzing the app for security issues.
+- Runtime Testing – analysis and security testing in runtime.
+- Penetration Testing – analysis and attack from simulated malicious attackers.
 
 ## 1. The architecture of CI/CD automation 
 
@@ -53,19 +53,19 @@ Configuration of the pipeline looks like this which you can find from `.github/w
 - Unit test by JUnit
 - Code(Test) coverage
 
-Number of 3rd party plugins were instrumented for this in Maven build file. And you can find Github Action plugins from Marketplace for [Code quality](github.com/marketplace?category=code-quality&type=actions) and [Code review](https://github.com/marketplace?category=code-review&type=actions)
+Number of 3rd party plugins were instrumented for this in Maven build file. And you can find Github Action plugins from Marketplace for more of [Code quality](github.com/marketplace?category=code-quality&type=actions) and [Code review](https://github.com/marketplace?category=code-review&type=actions)
 
 At each steps, test results and reports may look like these
 
 - Environment verification by enforcer plugin. [screenshot](media/devo-ci1.png)
 - OWASP vulnarability check by dependency-check plugin. [screenshot](media/devo-ci2.png)
-- Vulnarability checks for Java code by SpotBugs plugin 
+- Vulnarability checks for Java code by SpotBugs plugin.
   - What it looks like on the console, on succeed [screenshot](media/devo-ci3.png)
   - On the report in XML format, on succeed [screenshot](media/devo-ci3-1.png)
   - What it looks like on the console, on failure [screenshot](media/devo-ci3-2.png)
   - On the report, on failure [screenshot](media/devo-ci3-3.png)
 - Unit test results which defined in JUnit, on succeed [screenshot](media/devo-ci4.png)
-- Code coverage report by JaCoCo plugin
+- Code coverage report by JaCoCo plugin.
   - Overview [screenshot](media/devo-ci5.png)
   - Browse by classes (code) [screenshot](media/devo-ci5-1.png)
   - Browse by instances (runtime) [screenshot](media/devo-ci5-2.png)
