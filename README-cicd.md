@@ -58,17 +58,17 @@ Number of 3rd party plugins were instrumented for this in Maven build file. And 
 At each steps, test results and reports may look like these
 
 - Environment verification by enforcer plugin<details><summary>Screenshot</summary>![Shot](media/devo-ci1.png)</details>
-- OWASP vulnarability check by dependency-check plugin. [screenshot](media/devo-ci2.png)
+- OWASP vulnarability check by dependency-check plugin. <details><summary>Screenshot</summary>![Shot](media/devo-ci2.png)</details>
 - Vulnarability checks for Java code by SpotBugs plugin.
-  - What it looks like on the console, on succeed [screenshot](media/devo-ci3.png)
-  - On the report in XML format, on succeed [screenshot](media/devo-ci3-1.png)
-  - What it looks like on the console, on failure [screenshot](media/devo-ci3-2.png)
-  - On the report, on failure [screenshot](media/devo-ci3-3.png)
-- Unit test results which defined in JUnit, on succeed [screenshot](media/devo-ci4.png)
+  - What it looks like on the console, on succeed <details><summary>Screenshot</summary>![Shot](media/devo-ci3.png)</details>
+  - On the report in XML format, on succeed <details><summary>Screenshot</summary>![Shot](media/devo-ci3-1.png)</details>
+  - What it looks like on the console, on failure <details><summary>Screenshot</summary>![Shot](media/devo-ci3-2.png)</details>
+  - On the report, on failure <details><summary>Screenshot</summary>![Shot](media/devo-ci3-3.png)</details>
+- Unit test results which defined in JUnit, on succeed <details><summary>Screenshot</summary>![Shot](media/devo-ci5.png)</details>
 - Code coverage report by JaCoCo plugin.
-  - Overview [screenshot](media/devo-ci5.png)
-  - Browse by classes (code) [screenshot](media/devo-ci5-1.png)
-  - Browse by instances (runtime) [screenshot](media/devo-ci5-2.png)
+  - Overview <details><summary>Screenshot</summary>![Shot](media/devo-ci5.png)</details>
+  - Browse by classes (code) <details><summary>Screenshot</summary>![Shot](media/devo-ci5-1.png)</details>
+  - Browse by instances (runtime) <details><summary>Screenshot</summary>![Shot](media/devo-ci5-2.png)</details>
 
 On your Github Action
 
