@@ -12,14 +12,14 @@ This document introduces practical examples of CI/CD pipelines that you may want
 4. [Workflows for tests](4-workflows-for-continuous-validation-cv)
 5. [Workflows for security(penetration) test](5-workflows-for-securitypenetration-test-cv)
 
-Coding – Building – Testing & Security – Packaging – Releasing – Configuring – Monitoring, it covers end-to-end of development and delivery process in the real world project "Shifting Left" the security covers all three major area of static, composition and dynamic
+*Coding – Building – Testing & Security – Packaging – Releasing – Configuring – Monitoring*, it covers end-to-end of development and delivery process in the real world project "Shifting Left" the security covers all three major area of static, composition and dynamic
 
 For security testing, you'll find in these example workflows,
 
-- Code Review – detailed review and analysis at code level looking specifically for security vulnerabilities.
-- Vulnerability Assessment – scanning and analyzing the app for security issues.
-- Runtime Testing – analysis and security testing in runtime.
-- Penetration Testing – analysis and attack from simulated malicious attackers.
+- **Code Review** – detailed review and analysis at code level looking specifically for security vulnerabilities.
+- **Vulnerability Assessment** – scanning and analyzing the app for security issues.
+- **Runtime Testing** – analysis and security testing in runtime.
+- **Penetration Testing** – analysis and attack from simulated malicious attackers.
 
 ## 1. The architecture of CI/CD automation 
 
@@ -128,9 +128,9 @@ In this example, ZAP pluin's used (https://www.zaproxy.org/) for (full scan), ba
 
 Penetration test in this example follows these stages:
 
-- Explore – The tester attempts to learn about the system being tested. This includes trying to determine what software is in use, what endpoints exist, what patches are installed, etc. It also includes searching the site for hidden content, known vulnerabilities, and other indications of weakness.
-- Attack – The tester attempts to exploit the known or suspected vulnerabilities to prove they exist.
-- Report – The tester reports back the results of their testing, including the vulnerabilities, how they exploited them and how difficult the exploits were, and the severity of the exploitation.
+- **Explore** – The tester attempts to learn about the system being tested. This includes trying to determine what software is in use, what endpoints exist, what patches are installed, etc. It also includes searching the site for hidden content, known vulnerabilities, and other indications of weakness.
+- **Attack** – The tester attempts to exploit the known or suspected vulnerabilities to prove they exist.
+- **Report** – The tester reports back the results of their testing, including the vulnerabilities, how they exploited them and how difficult the exploits were, and the severity of the exploitation.
 
 ZAP plugin posts the test results as Issue on your repo. Here's an example
 
