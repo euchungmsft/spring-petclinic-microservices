@@ -4,13 +4,13 @@ GitHub Actions is a continuous integration and continuous delivery (CI/CD) platf
 
 GitHub Actions goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
 
-This document introduces pratical cases of CI/CD pipelines implemented in GitHub Action
+This document introduces practical cases of CI/CD pipelines that you may want to implement on GitHub Action
 
-1. The architecture of CI/CD automation 
-2. Workflows for build and test
-3. Workflows for build, test and deploy
-4. Workflows for tests
-5. Workflows for security(penetration) test
+1. [The architecture of CI/CD automation](#1-the-architecture-of-cicd-automation)
+2. [Workflows for build and test](#2-workflows-for-build-and-test-ci)
+3. [Workflows for build, test and deploy](3-workflows-for-build-test-and-deploy-cicd)
+4. [Workflows for tests](4-workflows-for-continuous-validation-cv)
+5. [Workflows for security(penetration) test](5-workflows-for-securitypenetration-test-cv)
 
 ## 1. The architecture of CI/CD automation 
 
@@ -18,75 +18,46 @@ This diagram presents key components and preconfigured pipelines
 
 ![Components and Elements](media/cicd-architecture.png)
 
-It covers 
+It contains 
 
-* Automated build and unit test 
-* Automated deployment with required verification
-* Automated static test for the Java code 
-* Automated functional tests for the apps and the APIs 
-* Automated load tests for the apps 
-* Synthetic monitoring for the APIs 
-* Automated security test for the app
-
-On your Github Action
-
-![GH A0](media/devo-s00.png)
+* Automated build and unit test for CI
+  * Automated static test for the Java code 
+  * Automated functional tests for the apps and the APIs 
+* Automated deployment with required verification for CD
+  * Automated load tests for the apps 
+  * Synthetic monitoring for the APIs 
+  * Automated security test for the app 
 
 ## 2. Workflows for Build and Test (CI)
 
-Pipeline looks like this in `.github/workflows/ci-build-test-all-customer.yml`
+Configuration of the pipeline looks like this which you can find from `.github/workflows/ci-build-test-all-customer.yml`
 
 ![CI](media/devo-ci.png)
 
 - Single job in the workflow
+- Triggered by push request
 - No cache's required
-- Includes pre-validation steps
+- Includes pre-validation steps for tests
   - Verifing build environment such as JDK type and version, Maven version and so on
-  - OWASP dependency-check, checks vulnarabilities from all dependencies in the Maven project
+  - Dependency check, checks vulnarabilities from all dependencies in the Maven project
   - Static test for Java code
-- Code coverage (JaCoCo)
+- Unit test by JUnit
+- Code(Test) coverage
 
-SonarQube plugin's preferred which can be easily integrated to JaCoCo
+Number of 3rd party plugins were instrumented for this in Maven build file. And you can find Github Action plugins from Marketplace for [Code quality](github.com/marketplace?category=code-quality&type=actions) and [Code review](https://github.com/marketplace?category=code-review&type=actions)
 
-Environment verification by enforcer plugin
-
-![CI1](media/devo-ci1.png)
-
-OWASP vulnarability check by dependency-check plugin
-
-![CI2](media/devo-ci2.png)
-
-Vulnarability checks for Java code by SpotBugs plugin what it looks like on the console, on succeed
-
-![CI3](media/devo-ci3.png)
-
-What it looks like on the report in XML format, on succeed
-
-![CI3-1](media/devo-ci3-1.png)
-
-What it looks like on the console, on failure
-
-![CI3-2](media/devo-ci3-2.png)
-
-What it looks like on the report, on failure. Listed by methods, fields, classes and so on
-
-![CI3-3](media/devo-ci3-3.png)
-
-Unit test results which defined in JUnit, on succeed
-
-![CI4](media/devo-ci4.png)
-
-Code coverage report by JaCoCo plugin, overview
-
-![CI5](media/devo-ci5.png)
-
-Browse by classes (code)
-
-![CI5-1](media/devo-ci5-1.png)
-
-Browse by instances (runtime)
-
-![CI5-2](media/devo-ci5-2.png)
+- Environment verification by enforcer plugin. [screenshot](media/devo-ci1.png){:target="_blank"}
+- OWASP vulnarability check by dependency-check plugin. [screenshot](media/devo-ci2.png){:target="_blank"}
+- Vulnarability checks for Java code by SpotBugs plugin 
+  - What it looks like on the console, on succeed [screenshot](media/devo-ci3.png){:target="_blank"}
+  - On the report in XML format, on succeed [screenshot](media/devo-ci3-1.png){:target="_blank"}
+  - What it looks like on the console, on failure [screenshot](media/devo-ci3-2.png){:target="_blank"}
+  - On the report, on failure [screenshot](media/devo-ci3-3.png){:target="_blank"}
+- Unit test results which defined in JUnit, on succeed [screenshot](media/devo-ci4.png){:target="_blank"}
+- Code coverage report by JaCoCo plugin
+  - Overview [screenshot](media/devo-ci5.png){:target="_blank"}
+  - Browse by classes (code) [screenshot](media/devo-ci5-1.png){:target="_blank"}
+  - Browse by instances (runtime) [screenshot](media/devo-ci5-2.png){:target="_blank"}
 
 On your Github Action
 
@@ -95,7 +66,7 @@ On your Github Action
 
 ## 3. Workflows for Build, Test and Deploy (CI/CD)
 
-Pipeline looks like this in `.github/workflows/cd-build-deploy-customer.yml`
+Configuration of the pipeline looks like this which you can find from  `.github/workflows/cd-build-deploy-customer.yml`
 
 ![CICD](media/devo-cicd.png)
 
@@ -112,7 +83,7 @@ On your Github Action
 
 ## 4. Workflows for Continuous Validation (CV)
 
-Pipeline looks like this in `.github/workflows/cv-tests-scenarios.yml`
+Configuration of the pipeline looks like this which you can find from `.github/workflows/cv-tests-scenarios.yml`
 
 ![CV](media/devo-cv.png)
 
@@ -135,7 +106,7 @@ On your Github Action
 
 ## 5. Workflows for Security(Penetration) Test (CV)
 
-Pipeline looks like this in `.github/workflows/cv-security-test.yml`
+Configuration of the pipeline looks like this which you can find from `.github/workflows/cv-security-test.yml`
 
 ![Sec](media/devo-sec.png)
 
@@ -154,6 +125,13 @@ ZAP plugin posts the test report as Issue on your repo. Here's an example
 On your Github Action
 
 ![GH A1](media/devo-s01.png)
+
+
+On your Github Action
+
+![GH A0](media/devo-s00.png)
+
+
 
 
 ## Trademarks
