@@ -12,9 +12,9 @@ This document introduces practical examples of CI/CD pipelines that you may want
 4. [Workflows for tests](4-workflows-for-continuous-validation-cv)
 5. [Workflows for security(penetration) test](5-workflows-for-securitypenetration-test-cv)
 
-*Coding – Building – Testing & Security – Packaging – Releasing – Configuring – Monitoring*, it covers end-to-end of development and delivery process in the real world project ***"Shifting Left"*** the security covers all three major area of static, composition and dynamic
+*Coding – Building – Testing & Security – Packaging – Releasing – Configuring – Monitoring*, it covers end-to-end of development and delivery process in the real world project introducing ***"Shift Left"*** the quality and the security in DevOps or DevSecOps manner which covers all three major area of static, composition and dynamic
 
-For security testing, you'll find in these example workflows,
+For security testing, you'll find in these from the workflows,
 
 - **Code Review** – detailed review and analysis at code level looking specifically for security vulnerabilities.
 - **Vulnerability Assessment** – scanning and analyzing the app for security issues.
@@ -39,7 +39,7 @@ It contains
 
 ## 2. Workflows for Build and Test (CI)
 
-Configuration of the pipeline looks like this which you can find from `.github/workflows/ci-build-test-all-customer.yml`
+Configuration of the pipeline looks like this which you can find from `.github/workflows/ci-build-test-customer.yml`
 
 ![CI](media/devo-ci.png)
 
@@ -70,9 +70,12 @@ At each steps, test results and reports may look like these
   - Browse by classes (code) <details><summary>Screenshot</summary>![Shot](media/devo-ci5-1.png)</details>
   - Browse by instances (runtime) <details><summary>Screenshot</summary>![Shot](media/devo-ci5-2.png)</details>
 
+<details><summary>Screenshot</summary>
+<p>
 On your Github Action
-
 ![GH A2](media/devo-s02.png)
+</p>
+</details>
 
 ## 3. Workflows for Build, Test and Deploy (CI/CD)
 
