@@ -20,7 +20,7 @@ jobs:
       - name: Checkout GitHub Actions 
         uses: actions/checkout@v2
         with:
-          ref: gene
+          ref: main
 
 #      - name: ZAP Full Scan
 #        uses: zaproxy/action-full-scan@v0.3.0
