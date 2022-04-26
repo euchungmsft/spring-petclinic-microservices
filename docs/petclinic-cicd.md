@@ -25,7 +25,7 @@ For security testing, you'll find in these from the workflows,
 
 This diagram presents key components and preconfigured pipelines 
 
-![Components and Elements](media/cicd-architecture.png)
+![Components and Elements](../media/cicd-architecture.png)
 
 It contains 
 
@@ -41,7 +41,7 @@ It contains
 
 Configuration of the pipeline looks like this which you can find from `.github/workflows/ci-build-test-customer.yml`
 
-![CI](media/devo-ci.png)
+![CI](../media/devo-ci.png)
 
 - Single job in the workflow
 - Triggered by push request
@@ -57,27 +57,27 @@ Number of 3rd party plugins were instrumented for this in Maven build file. And 
 
 At each steps, test results and reports may look like these
 
-- Environment verification by enforcer plugin<details><summary>Screenshot</summary>![Shot](media/devo-ci1.png)</details>
-- OWASP vulnarability check by dependency-check plugin. <details><summary>Screenshot</summary>![Shot](media/devo-ci2.png)</details>
+- Environment verification by enforcer plugin<details><summary>Screenshot</summary>![Shot](../media/devo-ci1.png)</details>
+- OWASP vulnarability check by dependency-check plugin. <details><summary>Screenshot</summary>![Shot](../media/devo-ci2.png)</details>
 - Vulnarability checks for Java code by SpotBugs plugin.
-  - What it looks like on the console, on succeed <details><summary>Screenshot</summary>![Shot](media/devo-ci3.png)</details>
-  - On the report in XML format, on succeed <details><summary>Screenshot</summary>![Shot](media/devo-ci3-1.png)</details>
-  - What it looks like on the console, on failure <details><summary>Screenshot</summary>![Shot](media/devo-ci3-2.png)</details>
-  - On the report, on failure <details><summary>Screenshot</summary>![Shot](media/devo-ci3-3.png)</details>
-- Unit test results which defined in JUnit, on succeed <details><summary>Screenshot</summary>![Shot](media/devo-ci5.png)</details>
+  - What it looks like on the console, on succeed <details><summary>Screenshot</summary>![Shot](../media/devo-ci3.png)</details>
+  - On the report in XML format, on succeed <details><summary>Screenshot</summary>![Shot](../media/devo-ci3-1.png)</details>
+  - What it looks like on the console, on failure <details><summary>Screenshot</summary>![Shot](../media/devo-ci3-2.png)</details>
+  - On the report, on failure <details><summary>Screenshot</summary>![Shot](../media/devo-ci3-3.png)</details>
+- Unit test results which defined in JUnit, on succeed <details><summary>Screenshot</summary>![Shot](../media/devo-ci5.png)</details>
 - Code coverage report by JaCoCo plugin.
-  - Overview <details><summary>Screenshot</summary>![Shot](media/devo-ci5.png)</details>
-  - Browse by classes (code) <details><summary>Screenshot</summary>![Shot](media/devo-ci5-1.png)</details>
-  - Browse by instances (runtime) <details><summary>Screenshot</summary>![Shot](media/devo-ci5-2.png)</details>
+  - Overview <details><summary>Screenshot</summary>![Shot](../media/devo-ci5.png)</details>
+  - Browse by classes (code) <details><summary>Screenshot</summary>![Shot](../media/devo-ci5-1.png)</details>
+  - Browse by instances (runtime) <details><summary>Screenshot</summary>![Shot](../media/devo-ci5-2.png)</details>
 
 On your Github Action
-![GH A2](media/devo-s02.png)
+![GH A2](../media/devo-s02.png)
 
 ## 3. Workflows for Build, Test and Deploy (CI/CD)
 
 Configuration of the pipeline looks like this which you can find from  `.github/workflows/cd-build-deploy-customer.yml`
 
-![CICD](media/devo-cicd.png)
+![CICD](../media/devo-cicd.png)
 
 - Multiple jobs in the workflow, init, build, deploy skipping test
 - Triggered by schedule event on Actions
@@ -89,13 +89,13 @@ In this example there are 2 cache's defined for builds and deploys to store .m2 
 
 On your Github Action
 
-![GH A3](media/devo-s03.png)
+![GH A3](../media/devo-s03.png)
 
 ## 4. Workflows for Continuous Validation (CV)
 
 Configuration of the pipeline looks like this which you can find from `.github/workflows/cv-tests-scenarios.yml`
 
-![CV](media/devo-cv.png)
+![CV](../media/devo-cv.png)
 
 - Same config's found from `cv-tests-apis.yml`, `cv-monitorings-apis.yml` 
 - Triggered by schedule event on Actions
@@ -104,22 +104,22 @@ These workflows calls Azure Load Testing with tests and test configs as argument
 
 Test results are found from Azure Load Testing portal 
 
-![Test Results](media/alt-test1.png)
+![Test Results](../media/alt-test1.png)
 
 These tests are scheduled. You can schedule them to run at specific UTC times using POSIX cron syntax. Scheduled workflows run on the latest commit on the default or base branch. Find further details from [here](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)
 
-![Shceduled](media/devo-02.png)
+![Shceduled](../media/devo-02.png)
 
 On your Github Action
 
-![GH A1](media/devo-s01.png)
+![GH A1](../media/devo-s01.png)
 
 
 ## 5. Workflows for Security(Penetration) Test (CV)
 
 Configuration of the pipeline looks like this which you can find from `.github/workflows/cv-security-test.yml`
 
-![Sec](media/devo-sec.png)
+![Sec](../media/devo-sec.png)
 
 - Triggered by schedule event on Actions
 
@@ -133,11 +133,11 @@ Penetration test in this example follows these stages:
 
 ZAP plugin posts the test results as Issue on your repo. Here's an example
 
-![ZAP Report](media/devo-01.png)
+![ZAP Report](../media/devo-01.png)
 
 On your Github Action
 
-![GH A1](media/devo-s01.png)
+![GH A1](../media/devo-s01.png)
 
 For notifications, you can add notification in the final step of each workflows using plugins such as
 
@@ -149,7 +149,7 @@ For notifications, you can add notification in the final step of each workflows 
 
 Overall, on your Github Action
 
-![GH A0](media/devo-s00.png)
+![GH A0](../media/devo-s00.png)
 
 
 ## Trademarks

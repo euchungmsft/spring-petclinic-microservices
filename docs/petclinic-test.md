@@ -14,7 +14,7 @@ There you'll need to install [JMeter](https://jmeter.apache.org/download_jmeter.
 
 Open `tests/petclinic-test-all.jmx` from JMeter
 
-![test all](media/alt-jmeter1.png)
+![test all](../media/alt-jmeter1.png)
 
 In the test plan, there you can find three Thread Groups on the left. 
 
@@ -36,17 +36,17 @@ On the right, you can see all variables externalized and parameterized for Azure
 
 For each of thread groups, you can find all settings with externalized arguments in each fields. You can define these arguments from environment variables on Azure Load Testing
 
-![Thread Config](media/alt-jmeter2.png)
+![Thread Config](../media/alt-jmeter2.png)
 
 For assertions, there's a few example's implemented in this example
 
-![Assertion](media/alt-jmeter3.png)
+![Assertion](../media/alt-jmeter3.png)
 
 It checks if the status is UP or it's failed
 
 If eveything's fine with all settings above, click on '>' button on the toolbar or press Ctrl-R. After the test cycle's completed, you can find the results from each Listener items. For assertion results, it will look like this
 
-![Assertion](media/alt-jmeter4.png)
+![Assertion](../media/alt-jmeter4.png)
 
 Failed by mismatches, value expected to be zero-length string, but found '0.0'
 
@@ -54,7 +54,7 @@ Failed by mismatches, value expected to be zero-length string, but found '0.0'
 
 Create a Azure Load Test resource
 
-![ALT](media/alt-alt1.png)
+![ALT](../media/alt-alt1.png)
 
 Location's limited on preview stage, select the closest region 
 
@@ -62,35 +62,35 @@ Go to the Azure Load Test resource that you have created just now, click on 'Tes
 
 Name your test
 
-![ALT2](media/alt-alt2.png)
+![ALT2](../media/alt-alt2.png)
 
 Upload .jmx file that you have created in the previous step
 
-![ALT3](media/alt-alt3.png)
+![ALT3](../media/alt-alt3.png)
 
 Scale the test
 
-![ALT4](media/alt-alt4.png)
+![ALT4](../media/alt-alt4.png)
 
 Config failure/success criteria
 
-![ALT5](media/alt-alt5.png)
+![ALT5](../media/alt-alt5.png)
 
 Add resources to monitor while running the test
 
-![ALT6](media/alt-alt6.png)
+![ALT6](../media/alt-alt6.png)
 
 You can update all above settings at anytime you want
 
 Test results are recorded like this
 
-![TEST1](media/alt-test1.png)
+![TEST1](../media/alt-test1.png)
 
 ## 3. Evaluating the test
 
 Here's the test report as an example
 
-![Reports](media/cicd-alt-report.png)
+![Reports](../media/cicd-alt-report.png)
 
 
 ## Trademarks
