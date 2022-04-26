@@ -81,5 +81,5 @@ jobs:
         working-directory: spring-petclinic-${{ env.CUSTOMERS_SERVICE }}
         run: |
           ls -al target
-          ../bin/upload.sh 
+          /bin/bash ../bin/upload.sh 
         shell: bash
