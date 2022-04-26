@@ -30,11 +30,25 @@ Click on 'Full' on top left. Copy API document URL from Swagger URL and paste it
 
 ![APIM Portal 2](media/oas-apim2.png)
 
+<!--
 Put your 'API URL Suffix' for example `https://[Your project name]-springcloud-api-gateway.azuremicroservices.io` 
 
 ![APIM Portal 3](media/oas-apim3.png)
+-->
 
-And click on 'Create' button. That's it !
+Click on 'Create' button. 
+
+Once the API creation's done successfully, it will look like this
+
+![APIM Portal 11](media/oas-apim11.png)
+
+
+Click on Edit icon of 'HTTP(s) endpoint' on Backend, put 'Service URL' on the popup, and click on 'Save' button
+
+![APIM Portal 12](media/oas-apim12.png)
+
+
+That's it !
 
 Find `PetClinic Swagger API` from 'APIs' that you created just now. It will look like this
 
