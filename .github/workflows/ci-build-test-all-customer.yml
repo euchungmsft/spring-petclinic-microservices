@@ -6,9 +6,9 @@ name: CI, Build & test for Customers
 on:
   workflow_dispatch:
 #  push:
-#    branches: [ gene ]
+#    branches: [ main ]
 #  pull_request:
-#    branches: [ gene ]
+#    branches: [ main ]
 
 env:
   PROJECT_NAME: 'spem003'
@@ -36,7 +36,7 @@ jobs:
       - name: Checkout GitHub Actions 
         uses: actions/checkout@v2
         with:
-          ref: gene
+          ref: main
 
       - name: Set up JDK 11
         uses: actions/setup-java@v2

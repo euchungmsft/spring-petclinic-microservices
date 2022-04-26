@@ -6,9 +6,9 @@ name: CV, Test User Scenarios
 on:
   workflow_dispatch:
 #  push:
-#    branches: [ gene ]
+#    branches: [ main ]
 #  pull_request:
-#    branches: [ gene ]
+#    branches: [ main ]
 
 env:
   AZURE_CRED: ${{ secrets.AZURE_CREDENTIALS01 }}

@@ -6,9 +6,9 @@ name: CD, Build & deploy for Customers
 on:
   workflow_dispatch:
 #  push:
-#    branches: [ gene ]
+#    branches: [ main ]
 #  pull_request:
-#    branches: [ gene ]
+#    branches: [ main ]
 
 env:
   PROJECT_NAME: 'spem003'
@@ -55,7 +55,7 @@ jobs:
       - name: Checkout GitHub Actions 
         uses: actions/checkout@v2
         with:
-          ref: gene
+          ref: main
 
       - name: Cache Local Maven Repository, cache m2
         uses: actions/cache@v2
@@ -82,7 +82,7 @@ jobs:
       - name: Checkout GitHub Actions 
         uses: actions/checkout@v2
         with:
-          ref: gene
+          ref: main
 
       - name: Check Maven Cache, restore m2 cache
         uses: actions/cache@v2
@@ -139,7 +139,7 @@ jobs:
       - name: Checkout GitHub Actions 
         uses: actions/checkout@v2
         with:
-          ref: gene      
+          ref: main      
 
       - name: Check Build Cache, restore builds cache
         uses: actions/cache@v2
