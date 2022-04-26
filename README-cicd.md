@@ -70,7 +70,8 @@ At each steps, test results and reports may look like these
   - Browse by classes (code) <details><summary>Screenshot</summary>![Shot](media/devo-ci5-1.png)</details>
   - Browse by instances (runtime) <details><summary>Screenshot</summary>![Shot](media/devo-ci5-2.png)</details>
 
-<details><summary>On your Github Action</summary>![GH A2](media/devo-s02.png)</details>
+On your Github Action
+![GH A2](media/devo-s02.png)
 
 ## 3. Workflows for Build, Test and Deploy (CI/CD)
 
