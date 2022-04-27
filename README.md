@@ -8,7 +8,7 @@ It's forked from [Azure-Samples/spring-petclinic-microservices](https://github.c
 
 * [Starting services locally without Docker](docs/README-petclinic.md#starting-services-locally-without-docker)
 * [Starting services locally with docker-compose](docs/README-petclinic.md#starting-services-locally-with-docker-compose)
-* [Deploying Spring Boot apps using Azure Spring Cloud and MySQL](docs/README-azure-examples.md)
+* [Deploying Spring Boot apps using Azure Spring Cloud and MySQL](docs/README-azure-samples.md)
 
 You will need to check this config repos too. They provide app configs to your runtime.
 
