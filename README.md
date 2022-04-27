@@ -10,7 +10,7 @@ It's forked from [Azure-Samples/spring-petclinic-microservices](https://github.c
 * [Starting services locally with docker-compose](docs/README-petclinic.md#starting-services-locally-with-docker-compose)
 * [Deploying Spring Boot apps using Azure Spring Cloud and MySQL](docs/README-azure-samples.md)
 
-You will need to check this config repos too. They provide app configs to your runtime.
+You will need to check these config repos too. They provide app configs to your runtime.
 
 * [euchungmsft/spring-petclinic-microservices-config](https://github.com/euchungmsft/spring-petclinic-microservices-config) - configuration as example on public
 * [euchungmsft/spring-petclinic-microservices-config-private](https://github.com/euchungmsft/spring-petclinic-microservices-config-private) - working configuration on private protected by GitHub authentication
@@ -35,7 +35,7 @@ Deploy Spring Boot apps using Azure Spring Cloud and Azure Services
   * [Configure and integrate the Azure services](#configure-and-integrate-the-azure-services)
   * [Configure PetClinic app](#configure-petclinic-app)
   * [Configure config-server by Azure Spring Cloud](#configure-config-server-by-azure-spring-cloud)
-  * [Deploy your Apps](#deploy-your-apps)
+  * [Deploy your apps](#deploy-your-apps)
   * [Testing the app](#testing-your-apps)
   * [Monitoring the app](#monitoring-your-app)
 
@@ -578,7 +578,7 @@ Those are the APIs that you can access over `api-gateway` or directly. But if yo
 
 And these are are Actuator endpoints by Spring Boot for your test and monitor. 
 
-What's Actuators ? They bring production-ready features to the Spring Boot apps - Monitoring the apps, gathering metrics, understanding traffic, or the state of our database become trivial with this dependency.
+_What's **Spring Boot Actuator** ?_ It brings production-ready features to the Spring Boot apps - Monitoring the apps, gathering metrics, understanding traffic, or the state of our database become trivial with this dependency.
 Actuator is mainly used to expose operational information about the running application — health, metrics, info, dump, env, etc. It uses HTTP endpoints or JMX beans to enable us to interact with it. See [this](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html) for further details
 
 
@@ -787,7 +787,7 @@ It's simply ingored while running the workflows on the Actions as default. It oc
 ## Credits
 
 This Spring microservices example is forked from 
-[Azure-Samples/spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices) - see [Petclinic README](docs/README-azure-examples.md)) and originated from [spring-petclinic/spring-petclinic-microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) - see [Petclinic README](docs/README-petclinic.md). 
+[Azure-Samples/spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices) - see [Petclinic README](docs/README-azure-samples.md)) and originated from [spring-petclinic/spring-petclinic-microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) - see [Petclinic README](docs/README-petclinic.md). 
 
 ## Contributing
 

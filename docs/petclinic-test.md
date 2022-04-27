@@ -1,8 +1,8 @@
 # Fully managed testing for PetClinic app
 
-This example shows how to config managed testing for PetClinic by using Azure Load Testing. 
-
 Azure Load Testing enables developers and testers to generate high-scale load and run simulations that reveal actionable insights into app performance, scalability, and capacity with a fully managed load-testing service. Get started quickly using existing Apache JMeter scripts, gain specialized recommendations backed by comprehensive metrics and analytics, and support continuous improvement through automated continuous integration and continuous delivery (CI/CD) workflows—all with a testing service built for Azure.
+
+This example shows how to config managed testing for PetClinic by using Azure Load Testing. 
 
 There you'll need to install [JMeter](https://jmeter.apache.org/download_jmeter.cgi) before you start, latest version's recommended
 
