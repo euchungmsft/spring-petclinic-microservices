@@ -1,6 +1,6 @@
 # Deploy Spring Boot apps using Azure Spring Cloud and Azure Services
 
-Azure Spring Cloud enables you to easily run a Spring Boot applications on Azure.
+Azure Spring Cloud enables you to easily run a Spring Boot applications on Azure. It manages the infrastructure of Spring Cloud applications hiding all complications of container and container managements so developers can focus on their code. It provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
 This example shows you how to deploy an existing Java Spring Boot/Cloud application to Azure. When you're finished, you can continue to manage the application with Azure services via the Azure CLI, Bicep templates or switch to using the Azure Portal.
 
