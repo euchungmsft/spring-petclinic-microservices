@@ -14,13 +14,13 @@ And check the source code `org.springframework.samples.petclinic.api.system.Swag
 
 If you want to make some changes in header part of this Swagger UI, check `apiInfo()` method. Bean `api()` is to define version and scope of the api. In this example, it's on `OAS3`, Open API 3.0 and selects all APIs under `org.springframework.samples.petclinic` in this module
 
+L22 ~ L26 is for Swagger v2 listing all APIs in this module.
+
 If you have deployed all modules as instructed in the previous document, it's only opened for `api-gateway` as default. You can 'Assign Endpoint' at each 'Apps' on the portal for those three services
 
 ![Assign Endpoint](../media/oas-assign.png)
 
 > Note: Azure API Management supports Open API 3. See [this](https://azure.microsoft.com/ko-kr/blog/announcing-the-preview-of-openapi-specification-v3-support-in-azure-api-management/) for further details
-
-L22 ~ L26 is for Swagger v2 listing all APIs in this module.
 
 From your APIM portal, click on the APIM instance that you have created, and 'APIs' blade on the left, and click on 'Open API' item on the right under 'Create from definition'
 
