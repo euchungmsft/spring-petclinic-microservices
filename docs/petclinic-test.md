@@ -18,7 +18,7 @@ Open `tests/petclinic-test-all.jmx` from JMeter
 
 In the test plan, there you can find three Thread Groups on the left. 
 
-- `user-scenario-01` is scenario test navigating pages on PetClinic app which you may want to run for load testing/scenario testing. It only contains simple test cases by calling pages in GET method in this example, but you can add cookies, custom headers, authentications, assertions and so on upon your needs.
+- `user-scenario-01` is for scenario test navigating pages on PetClinic app which you may want to run for load testing/scenario testing. It only contains simple test cases by calling pages in GET method in this example, but you can add cookies, custom headers, authentications, assertions and so on upon your needs.
 
 - `api-testing-01` is for API test. API test's configured for 4 apis. It's for synthetic monitoring for the APIs in operation. 
 
@@ -82,7 +82,7 @@ Add resources to monitor while running the test
 
 You can update all above settings at anytime you want
 
-Test results are recorded like this
+Test results are saved like this
 
 ![TEST1](../media/alt-test1.png)
 

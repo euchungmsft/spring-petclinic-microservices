@@ -6,9 +6,9 @@ This example shows you how to deploy an existing Java Spring Boot/Cloud applicat
 
 It's forked from [Azure-Samples/spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices) and originally from [spring-petclinic/spring-petclinic-microservices](https://github.com/spring-petclinic/spring-petclinic-microservices). Code change's minimized, all deployment models work properly which introduced in the previous repos such as
 
-* [Starting services locally without Docker](https://github.com/euchungmsft/spring-petclinic-microservices/blob/gene/README-petclinic.md#starting-services-locally-without-docker)
-* [Starting services locally with docker-compose](https://github.com/euchungmsft/spring-petclinic-microservices/blob/gene/README-petclinic.md#starting-services-locally-with-docker-compose)
-* [Deploying Spring Boot apps using Azure Spring Cloud and MySQL](https://github.com/euchungmsft/spring-petclinic-microservices/blob/gene/README-azure-examples.md)
+* [Starting services locally without Docker](docs/README-petclinic.md#starting-services-locally-without-docker)
+* [Starting services locally with docker-compose](docs/README-petclinic.md#starting-services-locally-with-docker-compose)
+* [Deploying Spring Boot apps using Azure Spring Cloud and MySQL](docs/README-azure-examples.md)
 
 You will need to check this config repos too. They provide app configs to your runtime.
 
@@ -477,7 +477,7 @@ Rebuild the apps with the redisson updates
 mvn clean package -DskipTests -Denv=cloud
 ```
 
-> Note: To run PetClinic app locally, See this [document](README-local.md)
+> Note: To run PetClinic app locally, See this [document](docs/petclinic-local.md)
 
 
 ### Deploy your Apps
@@ -637,11 +637,11 @@ Navigate to Live Metrics blade, you can see live metrics on screen with low late
 
 ## PetClinic Swagger/OAS3 for API Management Integration
 
-Find this [document](README-swagger.md) for the instructions
+Find this [document](docs/petclinic-swagger.md) for the instructions
 
 ## Fully managed testing for PetClinic app
 
-Find this [document](README-test.md) for the instructions
+Find this [document](docs/petclinic-test.md) for the instructions
 
 ## PetClinic on Automated CI/CD with GitHub Action
   * CI and CI/CD Workflows
@@ -756,7 +756,7 @@ When it's successfully done with test steps, it looks like this
 
 ## Automated CI/CD in practice
 
-Find this [document](README-cicd.md) for further details
+Find this [document](docs/petclinic-cicd.md) for further details
 
 
 
@@ -787,7 +787,7 @@ It's simply ingored while running the workflows on the Actions as default. It oc
 ## Credits
 
 This Spring microservices example is forked from 
-[Azure-Samples/spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices) - see [Petclinic README](./README-azure-examples.md)) and originated from [spring-petclinic/spring-petclinic-microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) - see [Petclinic README](./README-petclinic.md). 
+[Azure-Samples/spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices) - see [Petclinic README](docs/README-azure-examples.md)) and originated from [spring-petclinic/spring-petclinic-microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) - see [Petclinic README](docs/README-petclinic.md). 
 
 ## Contributing
 

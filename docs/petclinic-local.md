@@ -1,8 +1,8 @@
 # Running PetClinic app locally
 
-First you need to work through all steps to [Configure config-server by Azure Spring Cloud](README.md#configure-config-server-by-azure-spring-cloud) from the begining in the previous document [here](README.md)
+First you need to work through all steps to [Configure config-server by Azure Spring Cloud](../README.md#configure-config-server-by-azure-spring-cloud) from the begining in the previous document [here](../README.md)
 
-Run servers and services in sequence
+Running components in sequence
 
 1. config-server 
 2. discovery-server 
@@ -13,9 +13,9 @@ Run servers and services in sequence
 7. vets-service 
 8. visits-service 
 
-Be careful that `discovery-server` and `api-gateway` requires `config-server`, and rest of servers/services requires `discovery-server` and `api-gateway`
+Be mindful that `discovery-server` and `api-gateway` requires `config-server`, and rest of servers/services requires `discovery-server` and `api-gateway`, so it has to be done in sequence
 
-From the commandline, start `config-server`
+From the commandline, start `config-server` first
 
 ```bash
 
@@ -36,7 +36,7 @@ bin/run.sh admin-server
 
 ```
 
-Then, you can run all the rest at once
+Then, run all the rest at once
 
 ```bash
 
@@ -44,23 +44,19 @@ bin/run.sh customers-service vets-service visits-service consumer
 
 ```
 
-After all instances up, open `http://localhost:8761/` from your web browser for Eureka Dashboard
+After all components up, for Eureka Dashboard, `http://localhost:8761/` 
 
 ![Eureka Dashboard](../media/local-eureka.png)
 
-Open `http://localhost:9090/` for Spring Boot Admin Console
+for Spring Boot Admin Console, `http://localhost:9090/` 
 
 ![SP Admin 1](../media/local-admin.png)
 ![SP Admin 2](../media/local-admin2.png)
 
-And open `http://localhost:8080/` for PetClinic app
+for PetClinic app, `http://localhost:8080/` 
 
 ![PetClinic 1](../media/local-petclinic.png)
 ![PetClinic 2](../media/local-petclinic2.png)
-
-
-
-
 
 
 ## Trademarks

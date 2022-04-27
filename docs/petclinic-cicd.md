@@ -27,15 +27,15 @@ This diagram presents key components and preconfigured pipelines
 
 ![Components and Elements](../media/cicd-architecture.png)
 
-It contains 
+It implements 
 
-* Automated build and unit test for CI
-  * Automated static test for the Java code 
-  * Automated functional tests for the apps and the APIs 
-* Automated deployment with required verification for CD
-  * Automated load tests for the apps 
+* Automated pipelines for build and unit test, CI
+  * Static test for the Java code 
+  * Unit tests for the apps and the APIs 
+* Automated pipelines for deployment with verification, CD
+  * Load tests for the apps 
   * Synthetic monitoring for the APIs 
-  * Automated security test for the app 
+  * Security test for the app 
 
 ## 2. Workflows for Build and Test (CI)
 
@@ -44,7 +44,7 @@ Configuration of the pipeline looks like this which you can find from `.github/w
 ![CI](../media/devo-ci.png)
 
 - Single job in the workflow
-- Triggered by push request
+- Triggered by push and pull request to the repo or manually triggered
 - No cache's required
 - Includes pre-validation steps for tests
   - Verifing build environment such as JDK type and version, Maven version and so on
@@ -53,7 +53,7 @@ Configuration of the pipeline looks like this which you can find from `.github/w
 - Unit test by JUnit
 - Code(Test) coverage
 
-Number of 3rd party plugins were instrumented for this in Maven build file. And you can find Github Action plugins from Marketplace for more of [Code quality](github.com/marketplace?category=code-quality&type=actions) and [Code review](https://github.com/marketplace?category=code-review&type=actions)
+Number of 3rd party plugins were instrumented for this in Maven build file. And you can find Github Action plugins from Marketplace for more of [Code quality](https://github.com/marketplace?category=code-quality&type=actions) and [Code review](https://github.com/marketplace?category=code-review&type=actions)
 
 At each steps, test results and reports may look like these
 
@@ -79,8 +79,8 @@ Configuration of the pipeline looks like this which you can find from  `.github/
 
 ![CICD](../media/devo-cicd.png)
 
-- Multiple jobs in the workflow, init, build, deploy skipping test
-- Triggered by schedule event on Actions
+- Multiple jobs in the workflow - init, build, deploy skipping test
+- Triggered by push and pull request to the repo or manually triggered
 - Cache's configured 
 
 Each jobs on Github Action runners start in a clean virtual environment and must download dependencies each time(jobs), causing increased network utilization, longer runtime, and increased cost. To help speed up the time it takes to recreate these files, GitHub can cache dependencies you frequently use in workflows
@@ -97,10 +97,10 @@ Configuration of the pipeline looks like this which you can find from `.github/w
 
 ![CV](../media/devo-cv.png)
 
+- Triggered by scheduled event 
 - Same config's found from `cv-tests-apis.yml`, `cv-monitorings-apis.yml` 
-- Triggered by schedule event on Actions
 
-These workflows calls Azure Load Testing with tests and test configs as arguments which you can find `tests` folder. Each tests needs to be configured separately on your Azure Load Testing resource on the portal, you can find instructions from [here](README-test.md)
+These workflows calls Azure Load Testing with tests and test configs as arguments which you can find `tests` folder. Each tests needs to be configured separately on your Azure Load Testing resource on the portal, you can find instructions from [here](petclinic-test.md)
 
 Test results are found from Azure Load Testing portal 
 
@@ -121,15 +121,15 @@ Configuration of the pipeline looks like this which you can find from `.github/w
 
 ![Sec](../media/devo-sec.png)
 
-- Triggered by schedule event on Actions
+- Triggered by scheduled event 
 
 In this example, ZAP pluin's used (https://www.zaproxy.org/) for (full scan), baseline scan and API scan. 
 
 Penetration test in this example follows these stages:
 
-- **Explore** – The tester attempts to learn about the system being tested. This includes trying to determine what software is in use, what endpoints exist, what patches are installed, etc. It also includes searching the site for hidden content, known vulnerabilities, and other indications of weakness.
-- **Attack** – The tester attempts to exploit the known or suspected vulnerabilities to prove they exist.
-- **Report** – The tester reports back the results of their testing, including the vulnerabilities, how they exploited them and how difficult the exploits were, and the severity of the exploitation.
+- **Explore** – learns about the system being tested. This includes trying to determine what software is in use, what endpoints exist, what patches are installed, etc. It also includes searching the site for hidden content, known vulnerabilities, and other indications of weakness.
+- **Attack** – exploits the known or suspected vulnerabilities to prove they exist.
+- **Report** – reports back the results of their testing, including the vulnerabilities, how they exploited them and how difficult the exploits were, and the severity of the exploitation.
 
 ZAP plugin posts the test results as Issue on your repo. Here's an example
 
@@ -139,7 +139,7 @@ On your Github Action
 
 ![GH A1](../media/devo-s01.png)
 
-For notifications, you can add notification in the final step of each workflows using plugins such as
+For notifications, you can add notification in the final step at each workflows if neccessary by using plugins such as
 
 - Posting failure as an issue on your repo, [Issues Notifier](https://github.com/marketplace/actions/issues-notifier)
 - Sending failure over [Slack Notification](https://github.com/marketplace/actions/slack-notification)
