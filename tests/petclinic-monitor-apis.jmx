@@ -10,7 +10,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="TARGET_DOMAIN" elementType="Argument">
             <stringProp name="Argument.name">TARGET_DOMAIN</stringProp>
-            <stringProp name="Argument.value">spcm016-springcloud-api-gateway.azuremicroservices.io</stringProp>
+            <stringProp name="Argument.value"></stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="TARGET_PORT" elementType="Argument">
@@ -787,7 +787,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="TARGET_DOMAIN" elementType="Argument">
             <stringProp name="Argument.name">TARGET_DOMAIN</stringProp>
-            <stringProp name="Argument.value">spcm003-springcloud-api-gateway.azuremicroservices.io</stringProp>
+            <stringProp name="Argument.value"></stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="TARGET_PORT" elementType="Argument">

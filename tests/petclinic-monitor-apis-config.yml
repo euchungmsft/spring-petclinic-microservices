@@ -6,3 +6,6 @@ engineInstances: 1
 failureCriteria:
   - avg(response_time_ms) > 300
   - percentage(error) > 50
+env:
+  - name: 'TARGET_DOMAIN'
+    value: 'spem003-springcloud-api-gateway.azuremicroservices.io'
