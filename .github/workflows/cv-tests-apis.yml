@@ -51,23 +51,23 @@ jobs:
                 },
                 {
                 "name": "LOOP_COUNT",
-                "value": "1"
+                "value": "5"
                 },
                 {
                 "name": "VUSER_COUNT",
-                "value": "1"
-                },
-                {
-                "name": "RAMPUP_PERIOD",
-                "value": "0"
-                },
-                {
-                "name": "LIFETIME_DURATION",
                 "value": "10"
                 },
                 {
+                "name": "RAMPUP_PERIOD",
+                "value": "5"
+                },
+                {
+                "name": "LIFETIME_DURATION",
+                "value": "50"
+                },
+                {
                 "name": "STARTUP_DELAY",
-                "value": "0"
+                "value": "3"
                 }
             ]
 
