@@ -32,10 +32,10 @@ env:
   VISITS_SERVICE_JAR: spring-petclinic-visits-service/target/spring-petclinic-visits-service-2.5.1.jar  
   CONSUMER_SERVICE_JAR: spring-petclinic-consumer/target/spring-petclinic-consumer-2.5.1.jar  
 
-  AZURE_CLIENT_ID: f8e4b788-889f-40b8-b4cd-1d03a1b21853
+  AZURE_CLIENT_ID: 0ee2fa50-5e14-4c98-92f5-51e7fd55dd40
   AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CREDENTIALS02 }}
-  AZURE_TENANT_ID: 32ba456e-9152-4737-9098-48431c5e6477
-  KEYVAULT_URI: https://spem006-keyvault.vault.azure.net/
+  AZURE_TENANT_ID: 34fd49d1-5438-41c0-9831-1c2727e9b0a3
+  KEYVAULT_URI: https://spem006-keyvault.vault.azure.net/  
 
   AZURE_CRED: ${{ secrets.AZURE_CREDENTIALS01 }}
 
