@@ -11,14 +11,14 @@ on:
 #    branches: [ main ]
 
 env:
-  PROJECT_NAME: 'spem003'
-  AZURE_RESOURCE_GROUP_NAME: 'spem003-rg'
-  AZURE_SUBSCRIPTION_ID: '1ea8ac05-8fca-4c78-90d6-caa4bc8da388'
+  PROJECT_NAME: 'spcm018'
+  AZURE_RESOURCE_GROUP_NAME: 'spcm018-rg'
+  AZURE_SUBSCRIPTION_ID: 'b6d4cd53-eeab-41d1-93a8-665daf75fce1'
   AZURE_LOCATION: 'westus'
 
   ASC_PACKAGE_PATH: ${{ github.workspace }}
 
-  SPRING_CLOUD_SERVICE: spem003-springcloud
+  SPRING_CLOUD_SERVICE: spcm018-springcloud
 
   API_GATEWAY: api-gateway
   ADMIN_SERVER: admin-server
@@ -37,7 +37,7 @@ env:
   AZURE_CLIENT_ID: f8e4b788-889f-40b8-b4cd-1d03a1b21853
   AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CREDENTIALS02 }}
   AZURE_TENANT_ID: 32ba456e-9152-4737-9098-48431c5e6477
-  KEYVAULT_URI: https://spem003-keyvault.vault.azure.net/
+  KEYVAULT_URI: https://spcm018-keyvault.vault.azure.net/
 
   AZURE_CRED: ${{ secrets.AZURE_CREDENTIALS01 }}
   

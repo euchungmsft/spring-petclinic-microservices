@@ -9,7 +9,7 @@ on:
     - cron: '0 1 * * *'
 
 env:
-  TARGET_DOMAIN: "spem003-springcloud-api-gateway.azuremicroservices.io"
+  TARGET_DOMAIN: "spcm018-springcloud-api-gateway.azuremicroservices.io"
 
 jobs:
 
