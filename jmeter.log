@@ -1,0 +1,62 @@
+2022-05-09 17:35:37,897 INFO o.a.j.u.JMeterUtils: Setting Locale to en
+2022-05-09 17:35:37,922 INFO o.a.j.JMeter: Loading user properties from: /mnt/c/Workspace/Lib/apache-jmeter-5.4.3/bin/user.properties
+2022-05-09 17:35:37,926 INFO o.a.j.JMeter: Loading system properties from: /mnt/c/Workspace/Lib/apache-jmeter-5.4.3/bin/system.properties
+2022-05-09 17:35:37,932 INFO o.a.j.JMeter: Copyright (c) 1998-2021 The Apache Software Foundation
+2022-05-09 17:35:37,932 INFO o.a.j.JMeter: Version 5.4.3
+2022-05-09 17:35:37,932 INFO o.a.j.JMeter: java.version=11.0.11
+2022-05-09 17:35:37,933 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2022-05-09 17:35:37,933 INFO o.a.j.JMeter: os.name=Linux
+2022-05-09 17:35:37,933 INFO o.a.j.JMeter: os.arch=amd64
+2022-05-09 17:35:37,933 INFO o.a.j.JMeter: os.version=4.19.128-microsoft-standard
+2022-05-09 17:35:37,933 INFO o.a.j.JMeter: file.encoding=UTF-8
+2022-05-09 17:35:37,933 INFO o.a.j.JMeter: java.awt.headless=true
+2022-05-09 17:35:37,934 INFO o.a.j.JMeter: Max memory     =784334848
+2022-05-09 17:35:37,934 INFO o.a.j.JMeter: Available Processors =4
+2022-05-09 17:35:37,940 INFO o.a.j.JMeter: Default Locale=English
+2022-05-09 17:35:37,941 INFO o.a.j.JMeter: JMeter  Locale=English
+2022-05-09 17:35:37,941 INFO o.a.j.JMeter: JMeterHome=/mnt/c/Workspace/Lib/apache-jmeter-5.4.3
+2022-05-09 17:35:37,941 INFO o.a.j.JMeter: user.dir  =/mnt/c/Workspace/Lombard/dai001/spring-petclinic-microservices
+2022-05-09 17:35:37,942 INFO o.a.j.JMeter: PWD       =/mnt/c/Workspace/Lombard/dai001/spring-petclinic-microservices
+2022-05-09 17:35:37,943 INFO o.a.j.JMeter: IP: 127.0.1.1 Name: DESKTOP-MIHEKP9 FullName: DESKTOP-MIHEKP9.localdomain
+2022-05-09 17:35:37,950 INFO o.a.j.s.FileServer: Default base='/mnt/c/Workspace/Lombard/dai001/spring-petclinic-microservices'
+2022-05-09 17:35:37,951 INFO o.a.j.s.FileServer: Set new base='/mnt/c/Workspace/Lombard/dai001/spring-petclinic-microservices/tests'
+2022-05-09 17:35:38,146 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2022-05-09 17:35:38,170 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2022-05-09 17:35:38,177 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2022-05-09 17:35:38,183 INFO o.a.j.s.SaveService: Loading file: tests/petclinic-monitor-apis.jmx
+2022-05-09 17:35:38,251 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2022-05-09 17:35:38,252 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2022-05-09 17:35:38,252 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2022-05-09 17:35:38,252 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2022-05-09 17:35:38,253 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2022-05-09 17:35:38,253 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2022-05-09 17:35:38,293 INFO o.a.j.JMeter: Creating summariser <summary>
+2022-05-09 17:35:38,301 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2022-05-09 17:35:38,302 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2022-05-09 17:35:38,302 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2022-05-09 17:35:38,316 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2022-05-09 17:35:38,316 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2022-05-09 17:35:38,679 INFO o.a.j.JMeter: Running test (1652085338679)
+2022-05-09 17:35:38,692 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : api-monitoring-01
+2022-05-09 17:35:38,692 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group api-monitoring-01.
+2022-05-09 17:35:38,693 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2022-05-09 17:35:38,693 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2022-05-09 17:35:38,699 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2022-05-09 17:35:38,699 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2022-05-09 17:35:38,706 INFO o.a.j.t.JMeterThread: Thread started: api-monitoring-01 1-1
+2022-05-09 17:35:38,735 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = DESKTOP-MIHEKP9
+2022-05-09 17:35:38,746 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2022-05-09 17:35:38,749 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2022-05-09 17:35:38,749 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2022-05-09 17:35:38,749 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2022-05-09 17:35:38,749 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2022-05-09 17:35:38,944 INFO o.a.j.p.h.s.h.LazyLayeredConnectionSocketFactory: Setting up HTTPS TrustAll Socket Factory
+2022-05-09 17:35:38,953 INFO o.a.j.u.JsseSSLManager: Using default SSL protocol: TLS
+2022-05-09 17:35:38,953 INFO o.a.j.u.JsseSSLManager: SSL session context: per-thread
+2022-05-09 17:35:39,142 INFO o.a.j.u.SSLManager: JmeterKeyStore Location:  type JKS
+2022-05-09 17:35:39,145 INFO o.a.j.u.SSLManager: KeyStore created OK
+2022-05-09 17:35:39,146 WARN o.a.j.u.SSLManager: Keystore file not found, loading empty keystore
+2022-05-09 17:35:40,089 INFO o.a.j.t.JMeterThread: Thread is done: api-monitoring-01 1-1
+2022-05-09 17:35:40,089 INFO o.a.j.t.JMeterThread: Thread finished: api-monitoring-01 1-1
+2022-05-09 17:35:40,092 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2022-05-09 17:35:40,095 INFO o.a.j.r.Summariser: summary =      3 in 00:00:01 =    2.1/s Avg:   380 Min:   143 Max:   855 Err:     0 (0.00%)
