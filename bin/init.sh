@@ -13,7 +13,7 @@ CMD0="az group create
  --name $RESOURCE_GROUP 
  --subscription $SUBSCRIPTION
  --tags depl=petclinic"
-#echo $CMD0 
+echo $CMD0 
 eval $CMD0 
 
 CMD0="az ad sp create-for-rbac 
@@ -21,7 +21,7 @@ CMD0="az ad sp create-for-rbac
  --role owner 
  --scopes /subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP 
  --sdk-auth true"
-#echo $CMD0 
+echo $CMD0 
 STR0=`eval $CMD0`
 echo $STR0 | jq .
 
@@ -36,5 +36,5 @@ CMD0="az configure --defaults
  group=$RESOURCE_GROUP 
  location=$REGION 
  spring-cloud=$SPRING_CLOUD_SERVICE"
-#echo $CMD0 
+echo $CMD0 
 eval $CMD0 
