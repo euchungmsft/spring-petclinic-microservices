@@ -1,6 +1,6 @@
 # Running PetClinic app locally
 
-First you need to work through all steps to [Configure config-server by Azure Spring Cloud](../README.md#configure-config-server-by-azure-spring-cloud) from the begining in the previous document [here](../README.md)
+First you need to work through all steps to [Configure config-server by Azure Spring Apps](../README.md#configure-config-server-by-azure-spring-cloud) from the begining in the previous document [here](../README.md)
 
 Running components in sequence
 
