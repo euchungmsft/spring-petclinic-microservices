@@ -11,8 +11,8 @@ on:
 #    branches: [ main ]
 
 env:
-  PROJECT_NAME: 'spem006'
-  AZURE_RESOURCE_GROUP_NAME: 'spem006-rg'
+  PROJECT_NAME: 'spcm025'
+  AZURE_RESOURCE_GROUP_NAME: 'spcm025-rg'
 
   API_GATEWAY: api-gateway
   ADMIN_SERVER: admin-server

@@ -1,8 +1,6 @@
-# Deploy Spring Boot apps using Azure Spring Apps and Azure Services
+# Deploy Spring Boot apps using Azure Spring Cloud and Azure Services
 
-Azure Spring Apps enables you to easily run a Spring Boot applications on Azure. It manages the infrastructure of Spring Cloud applications hiding all complications of container and container managements so developers can focus on their code. It provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
-
-> Note: Azure Spring Cloud is now Azure Spring Apps as of today (May-22, 2022)
+Azure Spring Cloud enables you to easily run a Spring Boot applications on Azure. It manages the infrastructure of Spring Cloud applications hiding all complications of container and container managements so developers can focus on their code. It provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
 This example shows you how to deploy an existing Java Spring Boot/Cloud application to Azure. When you're finished, you can continue to manage the application with Azure services via the Azure CLI, Bicep templates or switch to using the Azure Portal.
 
@@ -10,7 +8,7 @@ It's forked from [Azure-Samples/spring-petclinic-microservices](https://github.c
 
 * [Starting services locally without Docker](docs/README-petclinic.md#starting-services-locally-without-docker)
 * [Starting services locally with docker-compose](docs/README-petclinic.md#starting-services-locally-with-docker-compose)
-* [Deploying Spring Boot apps using Azure Spring Apps and MySQL](docs/README-azure-samples.md)
+* [Deploying Spring Boot apps using Azure Spring Cloud and MySQL](docs/README-azure-samples.md)
 
 You will need to check these config repos too. They provide app configs to your runtime.
 
@@ -19,7 +17,7 @@ You will need to check these config repos too. They provide app configs to your 
 
 ## Contents
 
-Deploy Spring Boot apps using Azure Spring Apps and Azure Services
+Deploy Spring Boot apps using Azure Spring Cloud and Azure Services
 
 * [Introduction](#deploy-spring-boot-apps-using-azure-spring-cloud-and-azure-services)
   * [What will you experience](#what-you-will-experience)
@@ -36,7 +34,7 @@ Deploy Spring Boot apps using Azure Spring Apps and Azure Services
   * [Provisioning Azure Services](#provision-azure-services)
   * [Configure and integrate the Azure services](#configure-and-integrate-the-azure-services)
   * [Configure PetClinic app](#configure-petclinic-app)
-  * [Configure config-server by Azure Spring Apps](#configure-config-server-by-azure-spring-cloud)
+  * [Configure config-server by Azure Spring Cloud](#configure-config-server-by-azure-spring-cloud)
   * [Deploy your apps](#deploy-your-apps)
   * [Testing the app](#testing-your-apps)
   * [Monitoring the app](#monitoring-your-app)
@@ -58,7 +56,7 @@ Deploy Spring Boot apps using Azure Spring Apps and Azure Services
 You will
 
 - Build an existing Spring Boot/Cloud applications
-- Provision Azure Spring Apps service and Azure Services using Bicep template from commandline or/and portal. See [what is Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
+- Provision Azure Spring Cloud service and Azure Services using Bicep template from commandline or/and portal. See [what is Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 - Deploy applications to Azure
 - Bind applications to Azure services
 - Open and test the applications
@@ -89,15 +87,13 @@ In addition, you will need the following:
 
 ### Before you start
 
-Before you start, install the Azure Spring Apps extension for the Azure CLI using the following command
+Before you start, install the Azure Spring Cloud extension for the Azure CLI using the following command
 
 ```bash
     az extension add --name spring-cloud
 ```
 
 > Note: `spring-cloud` CLI extension `2.1.0` or later is a pre-requisite to enable the latest Java in-process agent for Application Insights. If you already have the CLI extension, you may need to upgrade to the latest using --
-
-> Note: Brand new extension's available as of today (May-25, 2022) as it's renamed to Azure Spring Apps. Try to update from your command line
 
 ```bash
     az extension update --name spring-cloud
@@ -116,7 +112,7 @@ Based on the PetClinic App, [Azure-Samples/spring-petclinic-microservices](https
 * All app components with data acess gets second level cache on Redis
 * All components bound to Log Analytics to send logs and metrics
 * Endpoints to `admin-server` and `api-gateway` for extenal access
-* config-server in Azure Spring Apps gets the app configs from repos on GitHub with authentication
+* config-server in Azure Spring Cloud gets the app configs from repos on GitHub with authentication
 * CI/CD by GitHub Actions are added with appropriate authentication to access the resources on Azure
 
 ### Deployment architecture - Basic 
@@ -148,7 +144,7 @@ Create a new folder and clone the repositories to your environment
 ```bash
 mkdir [your source code folder name]
 cd [your source code folder name]
-git clone [your source code repo URL, or https://github.com/microsoft/csu-digiapps-cm-java_on_springcloud]
+git clone [your source code repo URL, or https://github.com/euchungmsft/spring-petclinic-microservices]
 git clone [your config repo URL, or https://github.com/euchungmsft/spring-petclinic-microservices-config]
 ```
 
@@ -184,7 +180,7 @@ REGION=westus
 
 PROJECT_NAME is for automatically naming the resources. MY_UPN is User Principal Name of your Azure portal account. Check this from Azure Active Directory - Users
 
-Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Apps
+Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
 
 ```bash
 az login 
@@ -252,7 +248,7 @@ Set default sunscription to use in this example
 az account set --subscription ${SUBSCRIPTION}
 ```
 
-Provision infrastructure components and Azure Spring Apps
+Provision infrastructure components and Azure Spring Cloud
 
 ```bash
 az deployment group create \
@@ -409,7 +405,7 @@ git remote add origin https://github.com/<your gh account name>/spring-petclinic
 git push -u origin master
 ```
 
-### Configure config-server by Azure Spring Apps
+### Configure config-server by Azure Spring Cloud
 
 Back to `spring-petclinic-microservices`, make a copy `application.yml.example` to `application.yml`
 
@@ -488,7 +484,7 @@ mvn clean package -DskipTests -Denv=cloud
 
 App deployment consists of follwoing steps
 
-1. Create apps on your Azure Spring Apps instance
+1. Create apps on your Azure Spring Cloud instance
 2. Append persistent storage to your apps created
 3. Deploy the apps
 4. Browse logs 
@@ -506,7 +502,7 @@ bin/spring-cloud.sh create visits-service
 bin/spring-cloud.sh create consumer-service
 ```
 
-Run all of these at once. It normally takes minutes. Both config and discover servers are a part of Azure Spring Apps. You don't have to deploy both
+Run all of these at once. It normally takes minutes. Both config and discover servers are a part of Azure Spring Cloud. You don't have to deploy both
 
 #### Append persistent storage to your apps
 
@@ -583,7 +579,7 @@ Those are the APIs that you can access over `api-gateway` or directly. But if yo
 And these are are Actuator endpoints by Spring Boot for your test and monitor. 
 
 _What's **Spring Boot Actuator** ?_ It brings production-ready features to the Spring Boot apps - Monitoring the apps, gathering metrics, understanding traffic, or the state of our database become trivial with this dependency.
-Actuator is mainly used to expose operational information about the running application ??health, metrics, info, dump, env, etc. It uses HTTP endpoints or JMX beans to enable us to interact with it. See [this](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html) for further details
+Actuator is mainly used to expose operational information about the running application — health, metrics, info, dump, env, etc. It uses HTTP endpoints or JMX beans to enable us to interact with it. See [this](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html) for further details
 
 
 ```bash
@@ -597,7 +593,7 @@ curl -X GET https://${SPRING_CLOUD_SERVICE}-${API_GATEWAY}.azuremicroservices.io
 
 ### Monitoring your app
 
-Open the Application Insights created by Azure Spring Apps and start monitoring Spring Boot applications. You can find the Application Insights in the same Resource Group where you created an Azure Spring Apps service instance.
+Open the Application Insights created by Azure Spring Cloud and start monitoring Spring Boot applications. You can find the Application Insights in the same Resource Group where you created an Azure Spring Cloud service instance.
 
 ![Application Insights Overview](media/step-appinsights-overview.png)
 
