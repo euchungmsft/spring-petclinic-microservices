@@ -1,10 +1,10 @@
 - name: Running SB Starter app remotely at Azure VMs
   hosts: azhosts
   tasks:
-    - name: What is my ip
-      ignore_errors: yes
-      shell: "curl ifconfig.me"
-      register: curl1
+    # - name: What is my ip
+    #   ignore_errors: yes
+    #   shell: "curl ifconfig.me"
+    #   register: curl1
 
     - debug: var=curl1.stdout_lines
 
