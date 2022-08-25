@@ -34,3 +34,35 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      # Runs Ansible playbook
+      - name: Run playbook
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          # Required, playbook filepath
+          playbook: deploy.yml
+          # Optional, directory where playbooks live
+          directory: ./
+          # Optional, SSH private key
+          key: ${{secrets.ANSIBLE_SSH_PRIVATE_KEY}}
+          # Optional, literal inventory file contents
+          inventory: |
+            [all]
+            example.com
+
+            [group1]
+            example.com
+
+            [azhosts]
+            20.228.79.215
+          ## Optional, SSH known hosts file content
+          #known_hosts: .known_hosts
+          ## Optional, encrypted vault password
+          #vault_password: ${{secrets.VAULT_PASSWORD}}
+          ## Optional, galaxy requirements filepath
+          #requirements: galaxy-requirements.yml
+          ## Optional, additional flags to pass to ansible-playbook
+          options: |
+            --inventory .hosts
+            --extra-vars hello=there
+            --verbose
