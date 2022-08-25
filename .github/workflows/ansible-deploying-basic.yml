@@ -35,37 +35,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      # # Runs Ansible playbook
-      # - name: Run playbook
-      #   uses: dawidd6/action-ansible-playbook@v2
-      #   with:
-      #     # Required, playbook filepath
-      #     playbook: deploy.yml
-      #     # Optional, directory where playbooks live
-      #     directory: ./
-      #     # Optional, SSH private key
-      #     key: ${{secrets.ANSIBLE_SSH_PRIVATE_KEY}}
-      #     # Optional, literal inventory file contents
-      #     inventory: |
-      #       [all]
-      #       example.com
-
-      #       [azhosts]
-      #       20.228.79.215
-      #     ## Optional, SSH known hosts file content
-      #     #known_hosts: .known_hosts
-      #     ## Optional, encrypted vault password
-      #     #vault_password: ${{secrets.VAULT_PASSWORD}}
-      #     ## Optional, galaxy requirements filepath
-      #     #requirements: galaxy-requirements.yml
-      #     ## Optional, additional flags to pass to ansible-playbook
-      #     options: |
-      #       --inventory .hosts
-      #       --limit azhosts
-      #       --extra-vars hello=there
-      #       --verbose
-      #       --user azuser
-
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
@@ -86,6 +55,6 @@ jobs:
           # config: ${{ secrets.CONFIG }} # ssh_config; optional
           if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
 
-      - name: run playbook
+      - name: Run playbook
         run: |
-          ansible-playbook -i ansible_inventory.ini ansible/deploy.yml
+          ansible-playbook -i ansible_inventory.ini -u azureuser deploy.yml 
