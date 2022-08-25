@@ -1,17 +1,23 @@
-- name: This is a hello-world example
+- name: Running SB Starter app remotely at Azure VMs
   hosts: azhosts
   tasks:
-    # - name: Create a file called '/tmp/testfile.txt' with the content 'hello world'.
-    #   copy:
-    #     content: hello worldn
-    #     dest: /tmp/testfile.txt
+    - name: What is my ip
+      ignore_errors: yes
+      shell: "curl ifconfig.me"
+      register: curl1
 
-    - name: Get the PID of running process
+    - debug: var=curl1.stdout_lines
+
+    - name: Retrieving all PIDs of running java process
       ignore_errors: yes
       shell: "ps -few | grep java | awk '{print $2}'"
       register: running_processes
 
-    - name: Kill running processes
+    - name: Killing running the processes
       ignore_errors: yes
-      shell: "kill {{ item }}"
+      shell: "kill -9 {{ item }}"
       with_items: "{{ running_processes.stdout_lines }}"
+
+    - name: Starting up the Spring Boot app
+      ignore_errors: no
+      shell: "nohup java -jar /mnt/share01/target/spring-boot-initial-0.0.1-SNAPSHOT.jar > initial.log 2>&1 &"
