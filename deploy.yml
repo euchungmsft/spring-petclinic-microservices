@@ -5,8 +5,7 @@
     #   ignore_errors: yes
     #   shell: "curl ifconfig.me"
     #   register: curl1
-
-    - debug: var=curl1.stdout_lines
+    # - debug: var=curl1.stdout_lines
 
     - name: Retrieving all PIDs of running java process
       ignore_errors: yes
