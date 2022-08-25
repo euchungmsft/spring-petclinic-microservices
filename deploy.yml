@@ -1,7 +1,17 @@
 - name: This is a hello-world example
   hosts: azhosts
   tasks:
-    - name: Create a file called '/tmp/testfile.txt' with the content 'hello world'.
-      copy:
-        content: hello worldn
-        dest: /tmp/testfile.txt
+    # - name: Create a file called '/tmp/testfile.txt' with the content 'hello world'.
+    #   copy:
+    #     content: hello worldn
+    #     dest: /tmp/testfile.txt
+
+    - name: Get the PID of running process
+      ignore_errors: yes
+      shell: "ps -few | grep java | awk '{print $2}'"
+      register: running_processes
+
+    - name: Kill running processes
+      ignore_errors: yes
+      shell: "kill {{ item }}"
+      with_items: "{{ running_processes.stdout_lines }}"
