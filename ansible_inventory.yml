@@ -1,4 +1,6 @@
 all:
+#  hosts:
+#    mail.example.com:
   children:
     azhosts:
       hosts:
