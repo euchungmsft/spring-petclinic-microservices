@@ -1,0 +1,5 @@
+all:
+  children:
+    azhosts:
+      hosts:
+        20.228.79.215:

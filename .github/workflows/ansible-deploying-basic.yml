@@ -51,4 +51,4 @@ jobs:
 
       - name: Run playbook
         run: |
-          ansible-playbook -i ansible_inventory.ini -u azureuser deploy.yml --limit azhosts
+        ansible-playbook -i ansible_inventory.yml -u azureuser --limit azhosts deploy.yml 
