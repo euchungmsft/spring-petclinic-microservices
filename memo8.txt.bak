@@ -1,0 +1,162 @@
+arm-tool10
+{
+  "clientId": "0ee2fa50-5e14-4c98-92f5-51e7fd55dd40",
+  "clientSecret": "V7GBfdSb_DJFTxsuDSQkVE~DlMksUyA3-g",
+  "subscriptionId": "a7eb617d-5fd2-4421-9b76-8312acd77e28",
+  "tenantId": "34fd49d1-5438-41c0-9831-1c2727e9b0a3",
+  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+  "resourceManagerEndpointUrl": "https://management.azure.com/",
+  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+  "galleryEndpointUrl": "https://gallery.azure.com/",
+  "managementEndpointUrl": "https://management.core.windows.net/"
+}
+
+git add . ; git commit -m "..." ;  git push origin main
+
+jmeter -n -t petclinic-test-all.jmx -l log.jtl
+
+TARGET_DOMAIN ${__BeanShell( System.getenv("TARGET_DOMAIN") )}
+TARGET_PORT ${__BeanShell( System.getenv("TARGET_PORT") )}
+TARGET_URL_PREFIX ${__BeanShell( System.getenv("TARGET_URL_PREFIX") )}
+LOOP_COUNT  ${__BeanShell( System.getenv("LOOP_COUNT") )}
+VUSER_COUNT ${__BeanShell( System.getenv("VUSER_COUNT") )}
+RAMPUP_PERIOD ${__BeanShell( System.getenv("RAMPUP_PERIOD") )}
+LIFETIME_DURATION ${__BeanShell( System.getenv("LIFETIME_DURATION") )}
+STARTUP_DELAY ${__BeanShell( System.getenv("STARTUP_DELAY") )}
+
+TARGET_DOMAIN spcm016-springcloud-api-gateway.azuremicroservices.io
+TARGET_PORT 443
+TARGET_URL_PREFIX https
+LOOP_COUNT  5
+VUSER_COUNT 3
+RAMPUP_PERIOD 1
+LIFETIME_DURATION 120
+STARTUP_DELAY 3
+
+TARGET_DOMAIN spem003-springcloud-api-gateway.azuremicroservices.io
+TARGET_PORT 443
+TARGET_URL_PREFIX https
+LOOP_COUNT  5
+VUSER_COUNT 3
+RAMPUP_PERIOD 1
+LIFETIME_DURATION 120
+STARTUP_DELAY 3
+
+TARGET_DOMAIN=spem003-springcloud-api-gateway.azuremicroservices.io
+TARGET_PORT=443
+TARGET_URL_PREFIX=https
+LOOP_COUNT=5
+VUSER_COUNT=3
+RAMPUP_PERIOD=1
+LIFETIME_DURATION=120
+STARTUP_DELAY=3
+
+arm-tool10
+{
+  "clientId": "6c0363f2-e1e2-49a8-b97b-c51ebd8a10b2",
+  "clientSecret": "IZUdar2wv541em_fLS9~prG2c4reeBKGjc",
+  "subscriptionId": "b6d4cd53-eeab-41d1-93a8-665daf75fce1",
+  "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+  "resourceManagerEndpointUrl": "https://management.azure.com/",
+  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+  "galleryEndpointUrl": "https://gallery.azure.com/",
+  "managementEndpointUrl": "https://management.core.windows.net/"
+}
+
+arm-tool16
+{
+  "clientId": "cf5d7dcd-00d4-4685-94d5-9bd38cb635e5",
+  "clientSecret": "C1Thi94SxG8b0jx63n~o6N_7K0nTbVox_k",
+  "subscriptionId": "b6d4cd53-eeab-41d1-93a8-665daf75fce1",
+  "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+  "resourceManagerEndpointUrl": "https://management.azure.com/",
+  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+  "galleryEndpointUrl": "https://gallery.azure.com/",
+  "managementEndpointUrl": "https://management.core.windows.net/"
+}
+
+arm-tool12
+<updated>
+{
+  "clientId": "f8e4b788-889f-40b8-b4cd-1d03a1b21853",
+  "clientSecret": "sxsm1Uc60rV8WoHT0cLKIOE.o3N7XG5mQU",
+  "subscriptionId": "1ea8ac05-8fca-4c78-90d6-caa4bc8da388",
+  "tenantId": "32ba456e-9152-4737-9098-48431c5e6477",
+  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+  "resourceManagerEndpointUrl": "https://management.azure.com/",
+  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+  "galleryEndpointUrl": "https://gallery.azure.com/",
+  "managementEndpointUrl": "https://management.core.windows.net/"
+}
+
+{
+  "clientId": "f8e4b788-889f-40b8-b4cd-1d03a1b21853",
+  "clientSecret": "e-erYiW83IVhPWjYCM-qZ32N2tRRJVOq3I",
+  "subscriptionId": "1ea8ac05-8fca-4c78-90d6-caa4bc8da388",
+  "tenantId": "32ba456e-9152-4737-9098-48431c5e6477",
+  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+  "resourceManagerEndpointUrl": "https://management.azure.com/",
+  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+  "galleryEndpointUrl": "https://gallery.azure.com/",
+  "managementEndpointUrl": "https://management.core.windows.net/"
+}
+
+{
+  "clientId": "f8e4b788-889f-40b8-b4cd-1d03a1b21853",
+  "clientSecret": "1IBdosBBOGAU0nKN_J1Wcf.6IYs33I396f",
+  "subscriptionId": "1ea8ac05-8fca-4c78-90d6-caa4bc8da388",
+  "tenantId": "32ba456e-9152-4737-9098-48431c5e6477",
+  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+  "resourceManagerEndpointUrl": "https://management.azure.com/",
+  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+  "galleryEndpointUrl": "https://gallery.azure.com/",
+  "managementEndpointUrl": "https://management.core.windows.net/"
+}
+
+{
+  "clientId": "f8e4b788-889f-40b8-b4cd-1d03a1b21853",
+  "clientSecret": "2t2_qTSZIX0UjYg4lhsgI93t5Veo5zuuRz",
+  "subscriptionId": "1ea8ac05-8fca-4c78-90d6-caa4bc8da388",
+  "tenantId": "32ba456e-9152-4737-9098-48431c5e6477",
+  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+  "resourceManagerEndpointUrl": "https://management.azure.com/",
+  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+  "galleryEndpointUrl": "https://gallery.azure.com/",
+  "managementEndpointUrl": "https://management.core.windows.net/"
+}
+
+spcm017-cosmosdb
+spcm017-eventhub
+spcm017-keyvault
+spcm017-mysql
+spcm017-redis
+spcm017-springcloud
+spcm017sa
+spcm017-loga
+spcm017-appinsights
+
+spcm016-cosmosdb
+spcm016-eventhub
+spcm016-keyvault
+spcm016-mysql
+spcm016-redis
+spcm016-springcloud
+spcm016sa
+spcm016-loga
+spcm016-appinsights
+spcm016-apim
+spcm016-test
+
+spcm016-vnet
+spcm016-vnet-default-nsg-westus
+spcm016-vnet-sub1-nsg-westus
+spcm016-vnet-sub2-nsg-westus

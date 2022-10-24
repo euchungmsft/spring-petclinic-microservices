@@ -20,7 +20,7 @@ CMD0="az ad sp create-for-rbac
  --name $SP_NAME 
  --role owner 
  --scopes /subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP 
- --sdk-auth true"  
+ --sdk-auth true"
 echo $CMD0 
 STR0=`eval $CMD0`
 echo $STR0 | jq .

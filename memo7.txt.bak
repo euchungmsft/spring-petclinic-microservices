@@ -1,0 +1,10 @@
+
+mvn --projects spring-petclinic-customers-service -DskipTests -Denv=cloud pl.project13.maven:git-commit-id-plugin:revision
+
+mvn --projects spring-petclinic-customers-service -DskipTests -Denv=cloud pl.project13.maven:git-commit-id-plugin:validateRevision
+
+mvn --projects spring-petclinic-customers-service clean package -DskipTests -Denv=cloud
+
+------------
+
+git add . ; git commit -m "..." ;  git push origin gene -u
