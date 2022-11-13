@@ -1,0 +1,16 @@
+properties:
+  template:
+    containers:
+      - args:
+          - -wait=tcp://config-server:8888 
+          - -timeout=60s 
+          - -- 
+          - java
+          - org.springframework.boot.loader.JarLauncher
+        command:
+          - ./dockerize
+        name: discovery-server
+        image: acrusw001.azurecr.io/springcommunity/spring-petclinic-discovery-server:latest
+        resources:
+          cpu: 1
+          memory: 2Gi
