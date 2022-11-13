@@ -10,9 +10,9 @@ on:
 
 env:
   AZURE_CRED: ${{ secrets.AZURE_CREDENTIALS01 }}
-  LOAD_TEST_RESOURCE: "spcm031-tests"
-  LOAD_TEST_RESOURCE_GROUP: "spcm031-rg"
-  TARGET_DOMAIN: "spcm031-springcloud-api-gateway.azuremicroservices.io"
+  LOAD_TEST_RESOURCE: "spcm032-tests"
+  LOAD_TEST_RESOURCE_GROUP: "spcm032-rg"
+  TARGET_DOMAIN: "spcm032-springcloud-api-gateway.azuremicroservices.io"
 
 jobs:
 
