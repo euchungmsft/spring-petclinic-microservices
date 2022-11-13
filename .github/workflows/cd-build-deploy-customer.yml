@@ -13,7 +13,7 @@ on:
 env:
   PROJECT_NAME: 'spcm032'
   AZURE_RESOURCE_GROUP_NAME: 'spcm032-rg'
-  AZURE_SUBSCRIPTION_ID: 'b6d4cd53-eeab-41d1-93a8-665daf75fce1'
+  AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   AZURE_LOCATION: 'westus'  
 
   SPRING_CLOUD_SERVICE: spcm032-springcloud  
@@ -32,9 +32,9 @@ env:
   VISITS_SERVICE_JAR: spring-petclinic-visits-service/target/spring-petclinic-visits-service-2.5.1.jar  
   CONSUMER_SERVICE_JAR: spring-petclinic-consumer/target/spring-petclinic-consumer-2.5.1.jar  
 
-  AZURE_CLIENT_ID: 38c29542-25d4-4bd1-a3be-2111eb518260
+  AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
   AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CREDENTIALS02 }}
-  AZURE_TENANT_ID: 72f988bf-86f1-41af-91ab-2d7cd011db47
+  AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
   KEYVAULT_URI: https://spcm032-keyvault.vault.azure.net/  
 
   AZURE_CRED: ${{ secrets.AZURE_CREDENTIALS01 }}
@@ -170,7 +170,8 @@ jobs:
           creds: ${{ env.AZURE_CRED }} 
 
       - name: Deploy to Production with artifact, customers-service 
-        uses: azure/spring-cloud-deploy@v1
+        # uses: azure/spring-cloud-deploy@v1
+        uses: azure/spring-apps-deploy@v1
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION_ID }}
           action: Deploy
@@ -180,7 +181,7 @@ jobs:
           #package: ${{ env.ASC_PACKAGE_PATH }}/${{ env.CUSTOMERS_SERVICE_JAR }}
           package: ${{ env.CACHED_BUILD_PATHS }}/spring-petclinic-customers-service-2.5.1.jar
           jvm-options: -Xms2048m -Xmx2048m -Dspring.profiles.active=mysql
-          # environment-variables: "-AZURE_CLIENT_ID ${{ env.AZURE_CLIENT_ID }} -AZURE_CLIENT_SECRET ${{ env.AZURE_CLIENT_SECRET }} -AZURE_TENANT_ID ${{ env.AZURE_TENANT_ID }} -KEYVAULT_URI ${{ env.KEYVAULT_URI }}"
+          environment-variables: "-AZURE_CLIENT_ID ${{ env.AZURE_CLIENT_ID }} -AZURE_CLIENT_SECRET ${{ env.AZURE_CLIENT_SECRET }} -AZURE_TENANT_ID ${{ env.AZURE_TENANT_ID }} -KEYVAULT_URI ${{ env.KEYVAULT_URI }}"
 
       # Log out from Azure
       - name: Log out from Azure
